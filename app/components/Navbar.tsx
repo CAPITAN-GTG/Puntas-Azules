@@ -14,19 +14,17 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo and Brand */}
-          <Link href="/" className="flex items-center space-x-4 group">
-            <div className="relative h-12 w-12 overflow-hidden">
+          <Link href="/" className="flex items-center group">
+            <div className="relative h-14 w-40 sm:h-16 sm:w-48 md:h-20 md:w-56 overflow-hidden">
               <Image
                 src="/logo.PNG"
                 alt="Puntas Azules Logo"
                 fill
                 className="object-contain transform group-hover:scale-105 transition-transform duration-300"
+                priority
               />
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/0 via-cyan-400/0 to-cyan-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
-            <h1 className={`text-2xl font-bold text-white ${cormorantGaramond.className} hidden md:block`}>
-              Puntas Azules
-            </h1>
           </Link>
 
           {/* Navigation Items - Desktop */}
