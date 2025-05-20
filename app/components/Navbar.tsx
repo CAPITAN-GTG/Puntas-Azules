@@ -15,7 +15,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-20">
           {/* Logo and Brand */}
           <Link href="/" className="flex items-center group">
-            <div className="relative h-14 w-40 sm:h-16 sm:w-48 md:h-20 md:w-56 overflow-hidden">
+            <div className="relative h-12 w-32 sm:h-14 sm:w-40 md:h-16 md:w-48 overflow-hidden">
               <Image
                 src="/logo.PNG"
                 alt="Puntas Azules Logo"
