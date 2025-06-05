@@ -24,7 +24,7 @@ const Footer = () => {
             </h2>
           </div>
           <p className="text-gray-400 text-sm leading-relaxed max-w-xs mx-auto sm:mx-0">
-            Your premium destination for fine spirits and exceptional service.
+            Your premium destination for authentic Mexican tequila in three perfect expressions.
           </p>
           <div className="flex justify-center sm:justify-start space-x-6 mt-4">
             <a href="#" className="text-gray-400 hover:text-cyan-400 transition-colors">
@@ -48,8 +48,8 @@ const Footer = () => {
             </h3>
             <ul className="space-y-2 sm:space-y-3">
               <li>
-                <Link href="/spirits" className="text-gray-400 hover:text-cyan-400 transition-colors text-sm inline-block">
-                  Spirits
+                <Link href="/tequilas" className="text-gray-400 hover:text-cyan-400 transition-colors text-sm inline-block">
+                  Our Tequilas
                 </Link>
               </li>
               <li>
@@ -78,7 +78,7 @@ const Footer = () => {
             <ul className="space-y-2 sm:space-y-3">
               <li className="flex items-start justify-center sm:justify-start space-x-3">
                 <MapPin className="h-4 w-4 text-cyan-400 mt-1 flex-shrink-0" />
-                <span className="text-gray-400 text-sm">123 Spirits Street, City, Country</span>
+                <span className="text-gray-400 text-sm">123 Tequila Boulevard, Jalisco, Mexico</span>
               </li>
               <li className="flex items-center justify-center sm:justify-start space-x-3">
                 <Phone className="h-4 w-4 text-cyan-400 flex-shrink-0" />
@@ -127,7 +127,7 @@ const Footer = () => {
             © {new Date().getFullYear()} Puntas Azules. All rights reserved.
           </p>
           <p className="text-center text-gray-500 text-xs mt-2">
-            Please drink responsibly. Must be 21 or older to purchase alcohol.
+            Please drink responsibly. Must be 21 or older to purchase tequila. 100% Blue Agave.
           </p>
         </div>
       </div>

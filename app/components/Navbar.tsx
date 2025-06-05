@@ -30,11 +30,11 @@ const Navbar = () => {
           {/* Navigation Items - Desktop */}
           <div className="hidden md:flex items-center space-x-8">
             <Link
-              href="/spirits"
+              href="/tequilas"
               className="text-white/80 hover:text-cyan-400 transition-colors flex items-center space-x-2 group"
             >
               <Wine className="h-5 w-5 group-hover:text-cyan-400 transition-colors" />
-              <span className="text-sm tracking-wider">SPIRITS</span>
+              <span className="text-sm tracking-wider">TEQUILAS</span>
             </Link>
             <Link
               href="/collections"
@@ -138,11 +138,11 @@ const Navbar = () => {
           <div className="md:hidden py-4 border-t border-white/10 animate-fadeIn">
             <div className="flex flex-col space-y-4">
               <Link
-                href="/spirits"
+                href="/tequilas"
                 className="text-white/80 hover:text-cyan-400 transition-colors flex items-center space-x-2 px-4"
               >
                 <Wine className="h-5 w-5" />
-                <span>SPIRITS</span>
+                <span>TEQUILAS</span>
               </Link>
               <Link
                 href="/collections"

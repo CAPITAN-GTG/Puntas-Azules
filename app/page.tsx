@@ -63,10 +63,10 @@ const FrontPage = () => {
   }
 
   const featuredProducts = [
-    { id: 1, name: 'Premium Whiskey', image: '/pexel-images/1.jpg', price: '$89.99' },
-    { id: 2, name: 'Vintage Wine', image: '/pexel-images/2.jpg', price: '$129.99' },
-    { id: 3, name: 'Craft Gin', image: '/pexel-images/3.jpg', price: '$69.99' },
-    { id: 4, name: 'Rare Tequila', image: '/pexel-images/4.jpg', price: '$149.99' },
+    { id: 1, name: 'Premium Tequila Reposado', image: '/pexel-images/1.jpg', price: '$89.99' },
+    { id: 2, name: 'Artisan Tequila Blanco', image: '/pexel-images/2.jpg', price: '$129.99' },
+    { id: 3, name: 'Aged Tequila Añejo', image: '/pexel-images/3.jpg', price: '$69.99' },
+    { id: 4, name: 'Limited Edition Tequila', image: '/pexel-images/4.jpg', price: '$149.99' },
   ]
 
   return (
@@ -100,15 +100,15 @@ const FrontPage = () => {
               >
                 <div className="flex items-center mb-6">
                   <div className="h-px w-12 bg-cyan-400 mr-4" />
-                  <span className="text-cyan-400 font-light tracking-widest">PREMIUM SPIRITS</span>
+                  <span className="text-cyan-400 font-light tracking-widest">PREMIUM TEQUILA</span>
                 </div>
                 <h1 className={`text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight ${cormorantGaramond.className}`}>
-                  Discover the Art of
-                  <span className="block text-cyan-400 mt-2">Fine Spirits</span>
+                  Discover the Soul of
+                  <span className="block text-cyan-400 mt-2">Mexico's Finest</span>
                 </h1>
                 <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-xl leading-relaxed">
-                  Curated collection of the world's finest spirits, delivered to your doorstep. 
-                  Experience luxury in every sip.
+                  Experience the authentic taste of premium tequila in three distinct presentations: 
+                  Blanco, Reposado, and Añejo. Each bottle tells a story of tradition and craftsmanship.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <motion.button
@@ -116,7 +116,7 @@ const FrontPage = () => {
                     whileTap={{ scale: 0.98 }}
                     className="bg-cyan-400 text-black px-8 py-4 font-semibold hover:bg-cyan-300 transition-colors flex items-center justify-center border border-transparent hover:border-cyan-400"
                   >
-                    Explore Collection
+                    Explore Tequilas
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </motion.button>
                   <motion.button
@@ -139,10 +139,10 @@ const FrontPage = () => {
               >
                 <div className="grid grid-cols-2 gap-4">
                   {[
-                    { title: 'Premium Selection', icon: Wine },
+                    { title: '100% Agave Azul', icon: Wine },
                     { title: 'Worldwide Shipping', icon: Sparkles },
-                    { title: 'Expert Curation', icon: Award },
-                    { title: 'Exclusive Events', icon: Gift }
+                    { title: 'Master Distillers', icon: Award },
+                    { title: 'Exclusive Tastings', icon: Gift }
                   ].map((feature, index) => (
                     <motion.div
                       key={feature.title}
@@ -186,7 +186,7 @@ const FrontPage = () => {
           <div className="flex items-center justify-center mb-12">
             <div className="h-px w-20 bg-cyan-400 mr-4" />
             <h2 className={`text-3xl md:text-4xl font-bold ${cormorantGaramond.className}`}>
-              Featured Spirits
+              Featured Tequilas
             </h2>
             <div className="h-px w-20 bg-cyan-400 ml-4" />
           </div>
@@ -229,25 +229,22 @@ const FrontPage = () => {
           <div className="flex flex-col items-center mb-16">
             <div className="flex items-center mb-6">
               <div className="h-px w-20 bg-cyan-400 mr-4" />
-              <span className="text-cyan-400 font-light tracking-widest">OUR COLLECTION</span>
+              <span className="text-cyan-400 font-light tracking-widest">OUR TEQUILA COLLECTION</span>
               <div className="h-px w-20 bg-cyan-400 ml-4" />
             </div>
             <h2 className={`text-3xl md:text-4xl font-bold text-center mb-4 ${cormorantGaramond.className}`}>
-              Explore Categories
+              Three Perfect Expressions
             </h2>
             <p className="text-gray-400 text-center max-w-2xl">
-              Discover our carefully curated selection of premium spirits, each category representing the finest examples of their craft.
+              Discover the three classic presentations of tequila, each with its own unique character and aged to perfection in our distillery.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { name: 'Whiskey', image: '/pexel-images/6.jpg', count: '120+ Products' },
-              { name: 'Wine', image: '/pexel-images/7.jpg', count: '250+ Products' },
-              { name: 'Gin', image: '/pexel-images/8.jpg', count: '80+ Products' },
-              { name: 'Tequila', image: '/pexel-images/9.jpg', count: '60+ Products' },
-              { name: 'Rum', image: '/pexel-images/10.jpg', count: '90+ Products' },
-              { name: 'Vodka', image: '/pexel-images/11.jpg', count: '70+ Products' }
+              { name: 'Blanco', image: '/pexel-images/6.jpg', count: 'Crystal Clear', description: 'Pure and unaged, capturing the true essence of blue agave with crisp, clean flavors.' },
+              { name: 'Reposado', image: '/pexel-images/7.jpg', count: 'Golden Smooth', description: 'Aged 2-12 months in oak barrels, achieving perfect balance between agave and wood.' },
+              { name: 'Añejo', image: '/pexel-images/8.jpg', count: 'Rich & Complex', description: 'Aged over a year in oak barrels, developing deep complexity and amber richness.' }
             ].map((category, index) => (
               <motion.div
                 key={category.name}
@@ -282,7 +279,7 @@ const FrontPage = () => {
                     <div className="transform translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
                       <div className="h-px w-full bg-white/20 mb-4" />
                       <p className="text-gray-300 mb-6">
-                        Explore our premium selection of {category.name.toLowerCase()}, featuring rare finds and exclusive releases.
+                        {category.description}
                       </p>
                       <motion.button
                         whileHover={{ scale: 1.02 }}
@@ -306,7 +303,7 @@ const FrontPage = () => {
               whileTap={{ scale: 0.98 }}
               className="bg-transparent text-white px-8 py-4 font-semibold border border-white/20 hover:border-white/40 transition-colors flex items-center justify-center mx-auto"
             >
-              View All Categories
+              View All Tequilas
               <ArrowRight className="ml-2 h-5 w-5" />
             </motion.button>
           </div>
@@ -322,25 +319,25 @@ const FrontPage = () => {
               <div className="flex items-center mb-6">
                 <Gift className="h-6 w-6 text-cyan-400 mr-3" />
                 <h2 className={`text-3xl md:text-4xl font-bold ${cormorantGaramond.className}`}>
-                  Join Our Newsletter
+                  Join Our Tequila Club
                 </h2>
               </div>
               <p className="text-gray-400 mb-6 leading-relaxed">
-                Subscribe to receive updates on new arrivals, special offers, and exclusive events. 
-                Be the first to know about our premium selections.
+                Subscribe to receive updates on new tequila releases, exclusive tastings, and insider knowledge 
+                about the art of tequila making. Be the first to taste our limited editions.
               </p>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-center text-gray-300">
                   <Award className="h-4 w-4 text-cyan-400 mr-2" />
-                  Exclusive member discounts
+                  Exclusive member discounts on premium tequilas
                 </li>
                 <li className="flex items-center text-gray-300">
                   <Award className="h-4 w-4 text-cyan-400 mr-2" />
-                  Early access to new releases
+                  Early access to limited edition releases
                 </li>
                 <li className="flex items-center text-gray-300">
                   <Award className="h-4 w-4 text-cyan-400 mr-2" />
-                  VIP event invitations
+                  VIP tasting event invitations
                 </li>
               </ul>
             </div>
@@ -356,11 +353,11 @@ const FrontPage = () => {
                   whileTap={{ scale: 0.98 }}
                   className="w-full bg-cyan-400 text-black px-8 py-3 font-semibold hover:bg-cyan-300 transition-colors flex items-center justify-center"
                 >
-                  Subscribe Now
+                  Join Tequila Club
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </motion.button>
                 <p className="text-xs text-gray-500 text-center mt-4">
-                  By subscribing, you agree to our Privacy Policy and consent to receive updates from our company.
+                  By subscribing, you agree to our Privacy Policy and consent to receive updates from our company. Must be 21+ to join.
                 </p>
               </div>
             </div>
