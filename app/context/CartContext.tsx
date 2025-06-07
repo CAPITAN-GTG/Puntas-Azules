@@ -22,6 +22,7 @@ const CartContext = createContext<CartContextType | undefined>(undefined)
 
 export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   const [items, setItems] = useState<CartItem[]>([])
+  const [isHydrated, setIsHydrated] = useState(false)
 
   // Load cart from localStorage on mount
   useEffect(() => {
@@ -29,12 +30,15 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
     if (savedCart) {
       setItems(JSON.parse(savedCart))
     }
+    setIsHydrated(true)
   }, [])
 
-  // Save cart to localStorage whenever it changes
+  // Save cart to localStorage whenever it changes (only after hydration)
   useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(items))
-  }, [items])
+    if (isHydrated) {
+      localStorage.setItem('cart', JSON.stringify(items))
+    }
+  }, [items, isHydrated])
 
   const addToCart = (item: CartItem) => {
     setItems(currentItems => {
@@ -66,10 +70,28 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
 
   const clearCart = () => {
     setItems([])
-    localStorage.removeItem('cart')
+    if (isHydrated) {
+      localStorage.removeItem('cart')
+    }
   }
 
   const total = items.reduce((sum, item) => sum + (item.price * item.quantity), 0)
+
+  // Don't render cart-dependent UI until hydrated
+  if (!isHydrated) {
+    return (
+      <CartContext.Provider value={{
+        items: [],
+        addToCart: () => {},
+        removeFromCart: () => {},
+        updateQuantity: () => {},
+        clearCart: () => {},
+        total: 0
+      }}>
+        {children}
+      </CartContext.Provider>
+    )
+  }
 
   return (
     <CartContext.Provider value={{

@@ -101,6 +101,7 @@ const ProductPage = () => {
                     alt={product.name}
                     fill
                     className="object-cover"
+                    quality={75}
                   />
                 </div>
                 {/* Zoom Button */}
@@ -173,6 +174,7 @@ const ProductPage = () => {
                   alt="Product Preview"
                   fill
                   className="object-contain"
+                  quality={80}
                   sizes="(max-width: 768px) 90vw, (max-width: 1200px) 80vw, 70vw"
                   priority
                 />
