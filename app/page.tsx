@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic'
 import { Suspense } from 'react'
 import { cormorantGaramond } from './fonts'
 import ErrorBoundary from './components/ErrorBoundary'
+import ContactSection from './components/ContactSection'
 
 // Dynamically import heavy components
 const HeroSection = dynamic(() => import('./components/HeroSection'), {
@@ -42,6 +43,12 @@ const FrontPage = () => {
       <ErrorBoundary>
         <Suspense fallback={<LoadingSpinner />}>
           <CategoriesGrid />
+        </Suspense>
+      </ErrorBoundary>
+
+      <ErrorBoundary>
+        <Suspense fallback={<LoadingSpinner />}>
+          <ContactSection />
         </Suspense>
       </ErrorBoundary>
     </main>

@@ -1,6 +1,5 @@
 'use client'
 import React from 'react'
-import Image from 'next/image'
 import { Wine, Sparkles, Award, Gift, ArrowDown } from 'lucide-react'
 import Link from 'next/link'
 import { cormorantGaramond } from '../fonts'
@@ -9,17 +8,7 @@ const HeroSection = () => {
   return (
     <div className="relative h-screen">
       <div className="absolute inset-0">
-        <Image
-          src="/whiskey-1.webp"
-          alt="Hero Background"
-          fill
-          sizes="100vw"
-          className="object-cover"
-          priority
-          quality={60}
-          placeholder="blur"
-          blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkbHB0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R+Cc5O2/wDVt3vhePgNBLN4kKiO/wCGfSKkGD/q+y0fXhtBDz/VrfP0A0CdF8LjdO4sSQ+7xRKbqJc0sBhfvQfGdWTtI="
-        />
+        <div className="w-full h-full bg-red-600" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
       </div>
       
