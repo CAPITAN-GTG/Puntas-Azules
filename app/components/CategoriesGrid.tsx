@@ -7,9 +7,9 @@ import { cormorantGaramond } from '../fonts'
 
 const CategoriesGrid = () => {
   const categories = [
-    { name: 'Blanco', image: '/whiskey-blanco.jpg', count: 'Crystal Clear', description: 'Pure and unaged, capturing the true essence of blue agave with crisp, clean flavors.' },
-    { name: 'Reposado', image: '/whiskey-reposado.jpg', count: 'Golden Smooth', description: 'Aged 2-12 months in oak barrels, achieving perfect balance between agave and wood.' },
-    { name: 'Añejo', image: '/whiskey-anejo.jpg', count: 'Rich & Complex', description: 'Aged over a year in oak barrels, developing deep complexity and amber richness.' }
+    { name: 'Blanco', image: '/whiskey-blanco.webp', count: 'Crystal Clear', description: 'Pure and unaged, capturing the true essence of blue agave with crisp, clean flavors.' },
+    { name: 'Reposado', image: '/whiskey-reposado.webp', count: 'Golden Smooth', description: 'Aged 2-12 months in oak barrels, achieving perfect balance between agave and wood.' },
+    { name: 'Añejo', image: '/whiskey-anejo.webp', count: 'Rich & Complex', description: 'Aged over a year in oak barrels, developing deep complexity and amber richness.' }
   ]
 
   return (
@@ -24,7 +24,6 @@ const CategoriesGrid = () => {
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
-                quality={75}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6">

@@ -12,13 +12,12 @@ const AboutPage = () => {
       <section className="relative h-[60vh] min-h-[500px]">
         <div className="absolute inset-0">
           <Image
-            src="/whiskey-types.jpg"
+            src="/whiskey-types.webp"
             alt="Agave Fields"
             fill
             sizes="100vw"
             className="object-cover"
             priority
-            quality={75}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
         </div>
@@ -83,12 +82,11 @@ const AboutPage = () => {
               </div>
               <div className="relative h-[300px] rounded-lg overflow-hidden">
                 <Image
-                  src="/background.jpg"
+                  src="/background.webp"
                   alt="Production Process"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover"
-                  quality={75}
                 />
               </div>
             </div>

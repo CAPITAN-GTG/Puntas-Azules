@@ -53,10 +53,10 @@ const FeaturedProducts = () => {
   }
 
   const featuredProducts = [
-    { id: 1, name: 'Premium Tequila Reposado', image: '/whiskey-reposado-2.jpg', price: '$89.99' },
-    { id: 2, name: 'Artisan Tequila Blanco', image: '/whiskey-blanco-2.jpg', price: '$129.99' },
-    { id: 3, name: 'Aged Tequila Añejo', image: '/whiskey-anejo-2.jpg', price: '$69.99' },
-    { id: 4, name: 'Limited Edition Tequila', image: '/whiskey-2.jpg', price: '$149.99' },
+    { id: 1, name: 'Premium Tequila Reposado', image: '/whiskey-reposado-2.webp', price: '$89.99' },
+    { id: 2, name: 'Artisan Tequila Blanco', image: '/whiskey-blanco-2.webp', price: '$129.99' },
+    { id: 3, name: 'Aged Tequila Añejo', image: '/whiskey-anejo-2.webp', price: '$69.99' },
+    { id: 4, name: 'Limited Edition Tequila', image: '/whiskey-2.webp', price: '$149.99' },
   ]
 
   return (
@@ -80,7 +80,6 @@ const FeaturedProducts = () => {
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover transition-all duration-500 group-hover:brightness-75"
-                    quality={75}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-6">
