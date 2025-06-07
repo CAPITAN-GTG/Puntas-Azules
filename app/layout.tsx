@@ -22,12 +22,20 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Puntas Azules",
   description: "Premium Tequila & Mezcal",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'black-translucent',
+  },
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    viewportFit: 'cover',
+  },
 };
 
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 1,
   themeColor: '#000000',
 };
 

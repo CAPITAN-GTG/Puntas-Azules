@@ -2,6 +2,7 @@ import React from 'react'
 import dynamic from 'next/dynamic'
 import { Suspense } from 'react'
 import { cormorantGaramond } from './fonts'
+import ErrorBoundary from './components/ErrorBoundary'
 
 // Dynamically import heavy components
 const HeroSection = dynamic(() => import('./components/HeroSection'), {
@@ -26,17 +27,23 @@ const LoadingSpinner = () => (
 const FrontPage = () => {
   return (
     <main className="min-h-screen bg-black text-white">
-      <Suspense fallback={<LoadingSpinner />}>
-        <HeroSection />
-      </Suspense>
+      <ErrorBoundary>
+        <Suspense fallback={<LoadingSpinner />}>
+          <HeroSection />
+        </Suspense>
+      </ErrorBoundary>
 
-      <Suspense fallback={<LoadingSpinner />}>
-        <FeaturedProducts />
-      </Suspense>
+      <ErrorBoundary>
+        <Suspense fallback={<LoadingSpinner />}>
+          <FeaturedProducts />
+        </Suspense>
+      </ErrorBoundary>
 
-      <Suspense fallback={<LoadingSpinner />}>
-        <CategoriesGrid />
-      </Suspense>
+      <ErrorBoundary>
+        <Suspense fallback={<LoadingSpinner />}>
+          <CategoriesGrid />
+        </Suspense>
+      </ErrorBoundary>
     </main>
   )
 }
