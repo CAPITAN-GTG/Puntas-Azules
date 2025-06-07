@@ -24,7 +24,8 @@ const CategoriesGrid = () => {
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
-                quality={75}
+                quality={65}
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6">

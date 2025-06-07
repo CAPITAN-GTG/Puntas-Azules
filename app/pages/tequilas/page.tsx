@@ -101,7 +101,8 @@ const ProductPage = () => {
                     alt={product.name}
                     fill
                     className="object-cover"
-                    quality={75}
+                    quality={65}
+                    loading="lazy"
                   />
                 </div>
                 {/* Zoom Button */}

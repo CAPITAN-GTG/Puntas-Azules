@@ -34,8 +34,8 @@ const FeaturedProducts = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 5000,
+    autoplay: false,
+    lazyLoad: 'ondemand' as const,
     beforeChange: (oldIndex: number, newIndex: number) => setCurrentSlide(newIndex),
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
@@ -71,7 +71,7 @@ const FeaturedProducts = () => {
         </div>
         <div className="relative">
           <Slider {...sliderSettings} className="featured-slider">
-            {featuredProducts.map((product) => (
+            {featuredProducts.map((product, index) => (
               <div key={product.id} className="px-4">
                 <div className="relative h-[500px] rounded-none overflow-hidden group">
                   <Image
@@ -80,7 +80,9 @@ const FeaturedProducts = () => {
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover transition-all duration-500 group-hover:brightness-75"
-                    quality={75}
+                    quality={65}
+                    loading={index === 0 ? "eager" : "lazy"}
+                    priority={index === 0}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-6">

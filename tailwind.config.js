@@ -19,4 +19,12 @@ module.exports = {
     },
   },
   plugins: [],
+  // Disable animations on devices that prefer reduced motion
+  variants: {
+    extend: {
+      animation: ['motion-safe'],
+      transition: ['motion-safe'],
+      transform: ['motion-safe'],
+    },
+  },
 } 
