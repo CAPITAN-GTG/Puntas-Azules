@@ -18,6 +18,7 @@ const Footer = () => {
               width={45}
               height={45}
               className="rounded-full"
+              quality={75}
             />
             <h2 className={`text-2xl font-light tracking-wider ${cormorantGaramond.className}`}>
               Puntas Azules
@@ -27,13 +28,13 @@ const Footer = () => {
             Your premium destination for authentic Mexican tequila in three perfect expressions.
           </p>
           <div className="flex justify-center sm:justify-start space-x-6 mt-4">
-            <a href="#" className="text-gray-400 hover:text-cyan-400 transition-colors">
+            <a href="#" className="text-gray-400 hover:text-[#5197A6] transition-colors">
               <Facebook className="h-5 w-5" />
             </a>
-            <a href="#" className="text-gray-400 hover:text-cyan-400 transition-colors">
+            <a href="#" className="text-gray-400 hover:text-[#5197A6] transition-colors">
               <Instagram className="h-5 w-5" />
             </a>
-            <a href="#" className="text-gray-400 hover:text-cyan-400 transition-colors">
+            <a href="#" className="text-gray-400 hover:text-[#5197A6] transition-colors">
               <Twitter className="h-5 w-5" />
             </a>
           </div>
@@ -48,23 +49,18 @@ const Footer = () => {
             </h3>
             <ul className="space-y-2 sm:space-y-3">
               <li>
-                <Link href="/tequilas" className="text-gray-400 hover:text-cyan-400 transition-colors text-sm inline-block">
+                <Link href="/pages/tequilas" className="text-gray-400 hover:text-[#5197A6] transition-colors text-sm inline-block">
                   Our Tequilas
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="text-gray-400 hover:text-cyan-400 transition-colors text-sm inline-block">
+                <Link href="/pages/about" className="text-gray-400 hover:text-[#5197A6] transition-colors text-sm inline-block">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-gray-400 hover:text-cyan-400 transition-colors text-sm inline-block">
+                <Link href="/pages/contact" className="text-gray-400 hover:text-[#5197A6] transition-colors text-sm inline-block">
                   Contact
-                </Link>
-              </li>
-              <li>
-                <Link href="/faq" className="text-gray-400 hover:text-cyan-400 transition-colors text-sm inline-block">
-                  FAQ
                 </Link>
               </li>
             </ul>
@@ -77,16 +73,33 @@ const Footer = () => {
             </h3>
             <ul className="space-y-2 sm:space-y-3">
               <li className="flex items-start justify-center sm:justify-start space-x-3">
-                <MapPin className="h-4 w-4 text-cyan-400 mt-1 flex-shrink-0" />
-                <span className="text-gray-400 text-sm">123 Tequila Boulevard, Jalisco, Mexico</span>
+                <a 
+                  href="https://maps.google.com/?q=1670+Hammer+Ave+Ste+3+norco+CA+92860" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-start space-x-3 group"
+                >
+                  <MapPin className="h-4 w-4 text-[#5197A6] mt-1 flex-shrink-0 group-hover:text-[#5197A6]/80" />
+                  <span className="text-gray-400 text-sm group-hover:text-[#5197A6] transition-colors">1670 Hammer Ave Ste 3 norco CA 92860</span>
+                </a>
               </li>
               <li className="flex items-center justify-center sm:justify-start space-x-3">
-                <Phone className="h-4 w-4 text-cyan-400 flex-shrink-0" />
-                <span className="text-gray-400 text-sm">+1 234 567 890</span>
+                <a 
+                  href="tel:+19093215600" 
+                  className="flex items-center space-x-3 group"
+                >
+                  <Phone className="h-4 w-4 text-[#5197A6] flex-shrink-0 group-hover:text-[#5197A6]/80" />
+                  <span className="text-gray-400 text-sm group-hover:text-[#5197A6] transition-colors">+1 (909) 321-5600</span>
+                </a>
               </li>
               <li className="flex items-center justify-center sm:justify-start space-x-3">
-                <Mail className="h-4 w-4 text-cyan-400 flex-shrink-0" />
-                <span className="text-gray-400 text-sm">info@puntazules.com</span>
+                <a 
+                  href="mailto:info@senicinternational.com" 
+                  className="flex items-center space-x-3 group"
+                >
+                  <Mail className="h-4 w-4 text-[#5197A6] flex-shrink-0 group-hover:text-[#5197A6]/80" />
+                  <span className="text-gray-400 text-sm group-hover:text-[#5197A6] transition-colors">info@senicinternational.com</span>
+                </a>
               </li>
             </ul>
           </div>
@@ -98,22 +111,22 @@ const Footer = () => {
             </h3>
             <ul className="space-y-2 sm:space-y-3">
               <li>
-                <Link href="/terms" className="text-gray-400 hover:text-cyan-400 transition-colors text-sm inline-block">
+                <Link href="/pages/terms" className="text-gray-400 hover:text-[#5197A6] transition-colors text-sm inline-block">
                   Terms & Conditions
                 </Link>
               </li>
               <li>
-                <Link href="/privacy" className="text-gray-400 hover:text-cyan-400 transition-colors text-sm inline-block">
+                <Link href="/pages/privacy" className="text-gray-400 hover:text-[#5197A6] transition-colors text-sm inline-block">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/shipping" className="text-gray-400 hover:text-cyan-400 transition-colors text-sm inline-block">
+                <Link href="/shipping" className="text-gray-400 hover:text-[#5197A6] transition-colors text-sm inline-block">
                   Shipping Policy
                 </Link>
               </li>
               <li>
-                <Link href="/age-verification" className="text-gray-400 hover:text-cyan-400 transition-colors text-sm inline-block">
+                <Link href="/age-verification" className="text-gray-400 hover:text-[#5197A6] transition-colors text-sm inline-block">
                   Age Verification
                 </Link>
               </li>

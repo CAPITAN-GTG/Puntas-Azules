@@ -8,6 +8,7 @@ import { Wine, ChevronRight, ChevronLeft, ArrowRight, Star, Sparkles, Gift, Awar
 import { cormorantGaramond } from './fonts'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
+import Link from 'next/link'
 
 const FrontPage = () => {
   const { scrollYProgress } = useScroll()
@@ -54,8 +55,8 @@ const FrontPage = () => {
         <Star
           className={`h-5 w-5 transition-all duration-300 ${
             i === currentSlide
-              ? 'fill-cyan-400 text-cyan-400 scale-110'
-              : 'text-gray-400 hover:text-cyan-400'
+              ? 'fill-[#5197A6] text-[#5197A6] scale-110'
+              : 'text-gray-400 hover:text-[#5197A6]'
           }`}
         />
       </div>
@@ -63,10 +64,10 @@ const FrontPage = () => {
   }
 
   const featuredProducts = [
-    { id: 1, name: 'Premium Tequila Reposado', image: '/pexel-images/1.jpg', price: '$89.99' },
-    { id: 2, name: 'Artisan Tequila Blanco', image: '/pexel-images/2.jpg', price: '$129.99' },
-    { id: 3, name: 'Aged Tequila Añejo', image: '/pexel-images/3.jpg', price: '$69.99' },
-    { id: 4, name: 'Limited Edition Tequila', image: '/pexel-images/4.jpg', price: '$149.99' },
+    { id: 1, name: 'Premium Tequila Reposado', image: '/whiskey-reposado-2.jpg', price: '$89.99' },
+    { id: 2, name: 'Artisan Tequila Blanco', image: '/whiskey-blanco-2.jpg', price: '$129.99' },
+    { id: 3, name: 'Aged Tequila Añejo', image: '/whiskey-anejo-2.jpg', price: '$69.99' },
+    { id: 4, name: 'Limited Edition Tequila', image: '/whiskey-2.jpg', price: '$149.99' },
   ]
 
   return (
@@ -78,11 +79,12 @@ const FrontPage = () => {
       >
         <div className="absolute inset-0">
           <Image
-            src="/pexel-images/5.jpg"
+            src="/whiskey-1.jpg"
             alt="Hero Background"
             fill
             className="object-cover"
             priority
+            quality={75}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
         </div>
@@ -99,34 +101,34 @@ const FrontPage = () => {
                 className="text-left"
               >
                 <div className="flex items-center mb-6">
-                  <div className="h-px w-12 bg-cyan-400 mr-4" />
-                  <span className="text-cyan-400 font-light tracking-widest">PREMIUM TEQUILA</span>
+                  <div className="h-px w-12 bg-[#5197A6] mr-4" />
+                  <span className="text-[#5197A6] font-light tracking-widest">PREMIUM TEQUILA</span>
                 </div>
                 <h1 className={`text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight ${cormorantGaramond.className}`}>
                   Discover the Soul of
-                  <span className="block text-cyan-400 mt-2">Mexico's Finest</span>
+                  <span className="block text-[#5197A6] mt-2">Mexico's Finest</span>
                 </h1>
                 <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-xl leading-relaxed">
                   Experience the authentic taste of premium tequila in three distinct presentations: 
                   Blanco, Reposado, and Añejo. Each bottle tells a story of tradition and craftsmanship.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="bg-cyan-400 text-black px-8 py-4 font-semibold hover:bg-cyan-300 transition-colors flex items-center justify-center border border-transparent hover:border-cyan-400"
+                  <Link
+                    href="/pages/tequilas"
+                    className="bg-[#5197A6] text-black px-8 py-3 rounded-full text-sm font-bold hover:bg-[#5197A6]/90 transition-colors"
                   >
-                    Explore Tequilas
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </motion.button>
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="bg-transparent text-white px-8 py-4 font-semibold border border-white/20 hover:border-white/40 transition-colors flex items-center justify-center"
-                  >
-                    Learn More
-                    <ArrowDown className="ml-2 h-5 w-5" />
-                  </motion.button>
+                    Explore Our Tequilas
+                  </Link>
+                  <Link href="/pages/about">
+                    <motion.button
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="bg-transparent text-white px-8 py-4 font-semibold border border-white/20 hover:border-white/40 transition-colors flex items-center justify-center"
+                    >
+                      Learn More
+                      <ArrowDown className="ml-2 h-5 w-5" />
+                    </motion.button>
+                  </Link>
                 </div>
               </motion.div>
 
@@ -149,9 +151,9 @@ const FrontPage = () => {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                      className="bg-white/5 backdrop-blur-sm p-6 border border-white/10 hover:border-cyan-400/50 transition-colors"
+                      className="bg-white/5 backdrop-blur-sm p-6 border border-white/10 hover:border-[#5197A6]/50 transition-colors"
                     >
-                      <feature.icon className="h-8 w-8 text-cyan-400 mb-4" />
+                      <feature.icon className="h-8 w-8 text-[#5197A6] mb-4" />
                       <h3 className={`text-lg font-bold ${cormorantGaramond.className}`}>
                         {feature.title}
                       </h3>
@@ -174,7 +176,7 @@ const FrontPage = () => {
               animate={{ y: [0, 10, 0] }}
               transition={{ duration: 1.5, repeat: Infinity }}
             >
-              <ArrowDown className="h-6 w-6 text-cyan-400" />
+              <ArrowDown className="h-6 w-6 text-[#5197A6]" />
             </motion.div>
           </motion.div>
         </div>
@@ -184,11 +186,11 @@ const FrontPage = () => {
       <section className="py-20 px-4 bg-black">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-center mb-12">
-            <div className="h-px w-20 bg-cyan-400 mr-4" />
+            <div className="h-px w-20 bg-[#5197A6] mr-4" />
             <h2 className={`text-3xl md:text-4xl font-bold ${cormorantGaramond.className}`}>
               Featured Tequilas
             </h2>
-            <div className="h-px w-20 bg-cyan-400 ml-4" />
+            <div className="h-px w-20 bg-[#5197A6] ml-4" />
           </div>
           <div className="relative">
             <Slider {...sliderSettings} className="featured-slider">
@@ -200,17 +202,18 @@ const FrontPage = () => {
                       alt={product.name}
                       fill
                       className="object-cover transition-all duration-500 group-hover:brightness-75"
+                      quality={60}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
                     <div className="absolute bottom-0 left-0 right-0 p-6">
                       <div className="flex items-center mb-2">
-                        <Sparkles className="h-5 w-5 text-cyan-400 mr-2" />
+                        <Sparkles className="h-5 w-5 text-[#5197A6] mr-2" />
                         <h3 className={`text-2xl font-bold ${cormorantGaramond.className}`}>
                           {product.name}
                         </h3>
                       </div>
-                      <p className="text-cyan-400 text-xl mb-4">{product.price}</p>
-                      <button className="text-white hover:text-cyan-400 transition-colors flex items-center border-b border-transparent hover:border-cyan-400 pb-1">
+                      <p className="text-[#5197A6] text-xl mb-4">{product.price}</p>
+                      <button className="text-white hover:text-[#5197A6] transition-colors flex items-center border-b border-transparent hover:border-[#5197A6] pb-1">
                         View Details <ArrowRight className="ml-2 h-4 w-4" />
                       </button>
                     </div>
@@ -224,13 +227,13 @@ const FrontPage = () => {
 
       {/* Categories Grid */}
       <section className="py-20 px-4 bg-black relative">
-        <div className="absolute inset-0 bg-[url('/pexel-images/15.jpg')] bg-cover bg-center opacity-5" />
+        <div className="absolute inset-0 bg-[url('/whiskey-types.jpg')] bg-cover bg-center opacity-5" />
         <div className="max-w-7xl mx-auto relative">
           <div className="flex flex-col items-center mb-16">
             <div className="flex items-center mb-6">
-              <div className="h-px w-20 bg-cyan-400 mr-4" />
-              <span className="text-cyan-400 font-light tracking-widest">OUR TEQUILA COLLECTION</span>
-              <div className="h-px w-20 bg-cyan-400 ml-4" />
+              <div className="h-px w-20 bg-[#5197A6] mr-4" />
+              <span className="text-[#5197A6] font-light tracking-widest">OUR TEQUILA COLLECTION</span>
+              <div className="h-px w-20 bg-[#5197A6] ml-4" />
             </div>
             <h2 className={`text-3xl md:text-4xl font-bold text-center mb-4 ${cormorantGaramond.className}`}>
               Three Perfect Expressions
@@ -242,9 +245,9 @@ const FrontPage = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { name: 'Blanco', image: '/pexel-images/6.jpg', count: 'Crystal Clear', description: 'Pure and unaged, capturing the true essence of blue agave with crisp, clean flavors.' },
-              { name: 'Reposado', image: '/pexel-images/7.jpg', count: 'Golden Smooth', description: 'Aged 2-12 months in oak barrels, achieving perfect balance between agave and wood.' },
-              { name: 'Añejo', image: '/pexel-images/8.jpg', count: 'Rich & Complex', description: 'Aged over a year in oak barrels, developing deep complexity and amber richness.' }
+              { name: 'Blanco', image: '/whiskey-blanco.jpg', count: 'Crystal Clear', description: 'Pure and unaged, capturing the true essence of blue agave with crisp, clean flavors.' },
+              { name: 'Reposado', image: '/whiskey-reposado.jpg', count: 'Golden Smooth', description: 'Aged 2-12 months in oak barrels, achieving perfect balance between agave and wood.' },
+              { name: 'Añejo', image: '/whiskey-anejo.jpg', count: 'Rich & Complex', description: 'Aged over a year in oak barrels, developing deep complexity and amber richness.' }
             ].map((category, index) => (
               <motion.div
                 key={category.name}
@@ -254,23 +257,24 @@ const FrontPage = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group relative"
               >
-                <div className="relative h-[400px] overflow-hidden border border-white/10 hover:border-cyan-400/50 transition-colors">
+                <div className="relative h-[400px] overflow-hidden border border-white/10 hover:border-[#5197A6]/50 transition-colors">
                   <Image
                     src={category.image}
                     alt={category.name}
                     fill
-                    className="object-cover transition-all duration-500 group-hover:brightness-75"
+                    className="object-cover transition-all duration-500 group-hover:scale-105"
+                    quality={60}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
                   
                   {/* Category Content */}
                   <div className="absolute inset-0 p-8 flex flex-col justify-end">
                     <div className="mb-4">
-                      <div className="h-px w-12 bg-cyan-400 mb-4" />
+                      <div className="h-px w-12 bg-[#5197A6] mb-4" />
                       <h3 className={`text-3xl font-bold mb-2 ${cormorantGaramond.className}`}>
                         {category.name}
                       </h3>
-                      <p className="text-cyan-400 text-sm tracking-wider">
+                      <p className="text-[#5197A6] text-sm tracking-wider">
                         {category.count}
                       </p>
                     </div>
@@ -284,7 +288,7 @@ const FrontPage = () => {
                       <motion.button
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
-                        className="text-white hover:text-cyan-400 transition-colors flex items-center border-b border-transparent hover:border-cyan-400 pb-1"
+                        className="text-white hover:text-[#5197A6] transition-colors flex items-center border-b border-transparent hover:border-[#5197A6] pb-1"
                       >
                         View Collection
                         <ArrowRight className="ml-2 h-4 w-4" />
@@ -317,7 +321,7 @@ const FrontPage = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="text-left">
               <div className="flex items-center mb-6">
-                <Gift className="h-6 w-6 text-cyan-400 mr-3" />
+                <Gift className="h-6 w-6 text-[#5197A6] mr-3" />
                 <h2 className={`text-3xl md:text-4xl font-bold ${cormorantGaramond.className}`}>
                   Join Our Tequila Club
                 </h2>
@@ -328,15 +332,15 @@ const FrontPage = () => {
               </p>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-center text-gray-300">
-                  <Award className="h-4 w-4 text-cyan-400 mr-2" />
+                  <Award className="h-4 w-4 text-[#5197A6] mr-2" />
                   Exclusive member discounts on premium tequilas
                 </li>
                 <li className="flex items-center text-gray-300">
-                  <Award className="h-4 w-4 text-cyan-400 mr-2" />
+                  <Award className="h-4 w-4 text-[#5197A6] mr-2" />
                   Early access to limited edition releases
                 </li>
                 <li className="flex items-center text-gray-300">
-                  <Award className="h-4 w-4 text-cyan-400 mr-2" />
+                  <Award className="h-4 w-4 text-[#5197A6] mr-2" />
                   VIP tasting event invitations
                 </li>
               </ul>
@@ -346,12 +350,12 @@ const FrontPage = () => {
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  className="w-full px-4 py-3 bg-black/50 border border-gray-800 text-white focus:outline-none focus:border-cyan-400 transition-colors"
+                  className="w-full px-4 py-3 bg-black/50 border border-gray-800 text-white focus:outline-none focus:border-[#5197A6] transition-colors"
                 />
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full bg-cyan-400 text-black px-8 py-3 font-semibold hover:bg-cyan-300 transition-colors flex items-center justify-center"
+                  className="w-full bg-[#5197A6] text-black px-8 py-3 font-semibold hover:bg-[#5197A6]/90 transition-colors flex items-center justify-center"
                 >
                   Join Tequila Club
                   <ArrowRight className="ml-2 h-4 w-4" />
