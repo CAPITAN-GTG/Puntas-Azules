@@ -1,0 +1,109 @@
+'use client'
+import React, { useState } from 'react'
+import Image from 'next/image'
+import { motion } from 'framer-motion'
+import { Sparkles, ArrowRight, Star, ChevronRight, ChevronLeft } from 'lucide-react'
+import Slider from 'react-slick'
+import { cormorantGaramond } from '../fonts'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
+
+const FeaturedProducts = () => {
+  const [currentSlide, setCurrentSlide] = useState(0)
+
+  const NextArrow = ({ onClick }: { onClick?: () => void }) => (
+    <button
+      onClick={onClick}
+      className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 text-white p-2 rounded-none border border-white/20 hover:border-white/40 transition-all"
+    >
+      <ChevronRight className="h-6 w-6" />
+    </button>
+  )
+
+  const PrevArrow = ({ onClick }: { onClick?: () => void }) => (
+    <button
+      onClick={onClick}
+      className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 text-white p-2 rounded-none border border-white/20 hover:border-white/40 transition-all"
+    >
+      <ChevronLeft className="h-6 w-6" />
+    </button>
+  )
+
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    beforeChange: (oldIndex: number, newIndex: number) => setCurrentSlide(newIndex),
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+    customPaging: (i: number) => (
+      <div className="w-8 h-8 flex items-center justify-center">
+        <Star
+          className={`h-5 w-5 transition-all duration-300 ${
+            i === currentSlide
+              ? 'fill-[#5197A6] text-[#5197A6] scale-110'
+              : 'text-gray-400 hover:text-[#5197A6]'
+          }`}
+        />
+      </div>
+    ),
+  }
+
+  const featuredProducts = [
+    { id: 1, name: 'Premium Tequila Reposado', image: '/whiskey-reposado-2.jpg', price: '$89.99' },
+    { id: 2, name: 'Artisan Tequila Blanco', image: '/whiskey-blanco-2.jpg', price: '$129.99' },
+    { id: 3, name: 'Aged Tequila Añejo', image: '/whiskey-anejo-2.jpg', price: '$69.99' },
+    { id: 4, name: 'Limited Edition Tequila', image: '/whiskey-2.jpg', price: '$149.99' },
+  ]
+
+  return (
+    <section className="py-20 px-4 bg-black">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex items-center justify-center mb-12">
+          <div className="h-px w-20 bg-[#5197A6] mr-4" />
+          <h2 className={`text-3xl md:text-4xl font-bold ${cormorantGaramond.className}`}>
+            Featured Tequilas
+          </h2>
+          <div className="h-px w-20 bg-[#5197A6] ml-4" />
+        </div>
+        <div className="relative">
+          <Slider {...sliderSettings} className="featured-slider">
+            {featuredProducts.map((product) => (
+              <div key={product.id} className="px-4">
+                <div className="relative h-[500px] rounded-none overflow-hidden group">
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover transition-all duration-500 group-hover:brightness-75"
+                    quality={75}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <div className="flex items-center mb-2">
+                      <Sparkles className="h-5 w-5 text-[#5197A6] mr-2" />
+                      <h3 className={`text-2xl font-bold ${cormorantGaramond.className}`}>
+                        {product.name}
+                      </h3>
+                    </div>
+                    <p className="text-[#5197A6] text-xl mb-4">{product.price}</p>
+                    <button className="text-white hover:text-[#5197A6] transition-colors flex items-center border-b border-transparent hover:border-[#5197A6] pb-1">
+                      View Details <ArrowRight className="ml-2 h-4 w-4" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </Slider>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default FeaturedProducts 

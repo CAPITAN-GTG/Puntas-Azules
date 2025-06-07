@@ -29,6 +29,7 @@ const AboutPage = () => {
             src="/whiskey-types.jpg"
             alt="Agave Fields"
             fill
+            sizes="100vw"
             className="object-cover"
             priority
             quality={75}
@@ -110,6 +111,7 @@ const AboutPage = () => {
                   src="/background.jpg"
                   alt="Production Process"
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover"
                   quality={75}
                 />
