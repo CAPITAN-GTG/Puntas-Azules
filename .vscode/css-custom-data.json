@@ -1,0 +1,45 @@
+{
+  "version": 1.1,
+  "atDirectives": [
+    {
+      "name": "@custom-variant",
+      "description": "Tailwind CSS custom variant directive",
+      "references": [
+        {
+          "name": "Tailwind CSS Custom Variants",
+          "url": "https://tailwindcss.com/docs/adding-custom-styles#custom-variants"
+        }
+      ]
+    },
+    {
+      "name": "@theme",
+      "description": "Tailwind CSS theme directive for inline theme configuration",
+      "references": [
+        {
+          "name": "Tailwind CSS Theme Configuration",
+          "url": "https://tailwindcss.com/docs/theme"
+        }
+      ]
+    },
+    {
+      "name": "@apply",
+      "description": "Tailwind CSS apply directive to apply utility classes",
+      "references": [
+        {
+          "name": "Tailwind CSS Apply Directive",
+          "url": "https://tailwindcss.com/docs/functions-and-directives#apply"
+        }
+      ]
+    },
+    {
+      "name": "@layer",
+      "description": "Tailwind CSS layer directive for organizing styles",
+      "references": [
+        {
+          "name": "Tailwind CSS Layers",
+          "url": "https://tailwindcss.com/docs/functions-and-directives#layer"
+        }
+      ]
+    }
+  ]
+} 

@@ -10,9 +10,8 @@ const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { items } = useCart()
+  const itemCount = items.reduce((sum, item) => sum + item.quantity, 0)
   
-  const totalItems = items.reduce((sum, item) => sum + item.quantity, 0)
-
   return (
     <nav className="bg-black/90 backdrop-blur-md fixed w-full z-50 border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -26,7 +25,8 @@ const Navbar = () => {
                 fill
                 className="object-contain transform group-hover:scale-105 transition-transform duration-300"
                 priority
-                quality={75}
+                quality={50}
+                sizes="(max-width: 768px) 128px, (max-width: 1200px) 160px, 192px"
               />
               <div className="absolute inset-0 bg-gradient-to-br from-[#5197A6]/0 via-[#5197A6]/0 to-[#5197A6]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
@@ -59,9 +59,9 @@ const Navbar = () => {
               className="relative text-white/80 hover:text-[#5197A6] transition-colors"
             >
               <ShoppingCart className="h-5 w-5" />
-              {totalItems > 0 && (
+              {itemCount > 0 && (
                 <span className="absolute -top-2 -right-2 bg-[#5197A6] text-black text-[10px] font-bold h-4 w-4 rounded-full flex items-center justify-center">
-                  {totalItems}
+                  {itemCount}
                 </span>
               )}
             </Link>
@@ -78,7 +78,9 @@ const Navbar = () => {
                     alt="Profile"
                     fill
                     className="object-cover"
-                    quality={60}
+                    quality={50}
+                    sizes="40px"
+                    loading="lazy"
                   />
                 </div>
                 <ChevronDown 

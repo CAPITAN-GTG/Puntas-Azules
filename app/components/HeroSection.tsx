@@ -1,14 +1,25 @@
 'use client'
 import React from 'react'
+import Image from 'next/image'
 import { Wine, Sparkles, Award, Gift, ArrowDown } from 'lucide-react'
 import Link from 'next/link'
 import { cormorantGaramond } from '../fonts'
 
 const HeroSection = () => {
   return (
-    <div className="relative h-screen">
+    <div className="relative h-[80vh]">
       <div className="absolute inset-0">
-        <div className="w-full h-full bg-red-600" />
+        <Image
+          src="/whiskey-1.webp"
+          alt="Hero Background"
+          fill
+          sizes="100vw"
+          className="object-cover"
+          priority
+          quality={35}
+          placeholder="blur"
+          blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkbHB0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R+Cc5O2/wDVt3vhePgNBLN4kKiO/wCGfSKkGD/q+y0fXhtBDz/VrfP0A0CdF8LjdO4sSQ+7xRKbqJc0sBhfvQfGdWTtI="
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
       </div>
       
@@ -21,7 +32,7 @@ const HeroSection = () => {
                 <div className="h-px w-12 bg-[#5197A6] mr-4" />
                 <span className="text-[#5197A6] font-light tracking-widest">PREMIUM TEQUILA</span>
               </div>
-              <h1 className={`text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight ${cormorantGaramond.className}`}>
+              <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight ${cormorantGaramond.className}`}>
                 Discover the Soul of
                 <span className="block text-[#5197A6] mt-2">Mexico's Finest</span>
               </h1>
@@ -59,10 +70,10 @@ const HeroSection = () => {
                 ].map((feature) => (
                   <div
                     key={feature.title}
-                    className="bg-white/5 backdrop-blur-sm p-6 border border-white/10 hover:border-[#5197A6]/50 transition-colors"
+                    className="bg-white/5 backdrop-blur-sm p-4 border border-white/10 hover:border-[#5197A6]/50 transition-colors"
                   >
-                    <feature.icon className="h-8 w-8 text-[#5197A6] mb-4" />
-                    <h3 className={`text-lg font-bold ${cormorantGaramond.className}`}>
+                    <feature.icon className="h-6 w-6 text-[#5197A6] mb-3" />
+                    <h3 className={`text-base font-bold ${cormorantGaramond.className}`}>
                       {feature.title}
                     </h3>
                   </div>

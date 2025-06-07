@@ -1,5 +1,6 @@
 "use client"
 import React, { useState } from 'react'
+import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, ShoppingCart, Star, Award, Leaf, ZoomIn } from 'lucide-react'
 import { cormorantGaramond } from '../../fonts'
@@ -68,64 +69,74 @@ const ProductPage = () => {
   return (
     <main className="min-h-screen bg-black text-white py-20">
       {/* Header */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
         <div className="text-center">
           <div className="flex items-center justify-center mb-6">
             <div className="h-px w-12 bg-[#5197A6] mr-4" />
             <span className="text-[#5197A6] font-light tracking-widest">OUR TEQUILAS</span>
             <div className="h-px w-12 bg-[#5197A6] ml-4" />
           </div>
-          <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-6 ${cormorantGaramond.className}`}>
+          <h1 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-6 ${cormorantGaramond.className}`}>
             Premium Selection
           </h1>
-          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+          <p className="text-base text-gray-300 max-w-2xl mx-auto">
             Discover our carefully crafted tequilas, each telling its own story of tradition and excellence.
           </p>
         </div>
       </div>
 
       {/* Products Grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.map((product) => (
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {products.map((product, index) => (
             <div
               key={product.id}
-              className="group bg-white/5 backdrop-blur-sm border border-white/10 hover:border-[#5197A6]/50 transition-colors"
+              className="group bg-white/5 backdrop-blur-sm border border-white/10 hover:border-[#5197A6]/50 transition-colors rounded-lg overflow-hidden"
             >
               {/* Image Section */}
-              <div className="relative aspect-[4/5]">
+              <div className="relative aspect-[3/4]">
                 <div className="absolute inset-0">
-                  <div className="w-full h-full bg-red-600" />
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    fill
+                    className="object-contain p-4"
+                    quality={50}
+                    loading="lazy"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    placeholder="blur"
+                    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkbHB0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk"
+                  />
                 </div>
                 {/* Zoom Button */}
                 <button
                   onClick={() => setSelectedImage(product.image)}
-                  className="absolute top-4 right-4 bg-black/50 p-2 text-white hover:text-[#5197A6] transition-colors"
+                  className="absolute top-4 right-4 bg-black/50 p-2 text-white hover:text-[#5197A6] transition-colors rounded"
                 >
-                  <ZoomIn className="h-5 w-5" />
+                  <ZoomIn className="h-4 w-4" />
                 </button>
               </div>
 
               {/* Content Section */}
-              <div className="p-6">
-                <div className="flex items-start justify-between mb-4">
+              <div className="p-4">
+                <div className="flex items-start justify-between mb-3">
                   <div>
-                    <h2 className={`text-2xl font-bold mb-2 ${cormorantGaramond.className}`}>
+                    <h2 className={`text-lg font-bold mb-2 ${cormorantGaramond.className}`}>
                       {product.name}
                     </h2>
                     <p className="text-gray-300 text-sm line-clamp-2">
                       {product.description}
                     </p>
                   </div>
-                  <span className="text-[#5197A6] font-bold text-xl">
+                  <span className="text-[#5197A6] font-bold text-lg">
                     ${product.price.toFixed(2)}
                   </span>
                 </div>
 
-                <div className="space-y-3 mb-6">
+                <div className="space-y-2 mb-4">
                   {product.features.map((feature, i) => (
                     <div key={i} className="flex items-center text-sm text-gray-300">
-                      <Star className="h-4 w-4 text-[#5197A6] mr-2" />
+                      <Star className="h-3 w-3 text-[#5197A6] mr-2" />
                       {feature}
                     </div>
                   ))}
@@ -136,9 +147,9 @@ const ProductPage = () => {
                   whileTap={{ scale: 0.95 }}
                   whileHover={{ scale: 1.02 }}
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                  className="w-full bg-[#5197A6] text-black py-3 font-bold hover:bg-[#5197A6]/90 transition-colors flex items-center justify-center space-x-2"
+                  className="w-full bg-[#5197A6] text-black py-2 font-bold hover:bg-[#5197A6]/90 transition-colors flex items-center justify-center space-x-2 rounded"
                 >
-                  <ShoppingCart className="h-5 w-5" />
+                  <ShoppingCart className="h-4 w-4" />
                   <span>Add to Cart</span>
                 </motion.button>
               </div>
@@ -158,11 +169,19 @@ const ProductPage = () => {
             onClick={() => setSelectedImage(null)}
           >
             <div
-              className="relative w-full h-full max-w-[90vw] max-h-[90vh]"
+              className="relative w-full h-full max-w-[70vw] max-h-[80vh]"
               onClick={e => e.stopPropagation()}
             >
               <div className="relative w-full h-full">
-                <div className="w-full h-full bg-red-600" />
+                <Image
+                  src={selectedImage}
+                  alt="Product Preview"
+                  fill
+                  className="object-contain"
+                  quality={70}
+                  sizes="(max-width: 768px) 70vw, 60vw"
+                  priority
+                />
               </div>
               <button
                 className="absolute top-4 right-4 text-white hover:text-[#5197A6] transition-colors bg-black/50 rounded-full p-2"
