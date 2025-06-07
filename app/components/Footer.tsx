@@ -1,7 +1,6 @@
 "use client"
 import React from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { Facebook, Instagram, Twitter, Mail, Phone, MapPin } from 'lucide-react'
 import { cormorantGaramond } from '../fonts'
 
@@ -12,14 +11,7 @@ const Footer = () => {
         {/* Company Info - Always visible */}
         <div className="text-center sm:text-left mb-8 sm:mb-0">
           <div className="flex items-center justify-center sm:justify-start space-x-3 mb-4">
-            <Image
-              src="/logo.PNG"
-              alt="Puntas Azules Logo"
-              width={45}
-              height={45}
-              className="rounded-full"
-              quality={75}
-            />
+            <div className="w-[45px] h-[45px] bg-red-600 rounded-full" />
             <h2 className={`text-2xl font-light tracking-wider ${cormorantGaramond.className}`}>
               Puntas Azules
             </h2>

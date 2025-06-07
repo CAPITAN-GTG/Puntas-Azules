@@ -1,6 +1,5 @@
 "use client"
 import React, { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { Wine, User, ShoppingCart, LogOut, ChevronDown, Search, Menu, Package, Info, X } from "lucide-react";
 import { cormorantGaramond } from "../fonts";
@@ -20,14 +19,7 @@ const Navbar = () => {
           {/* Logo and Brand */}
           <Link href="/" className="flex items-center group">
             <div className="relative h-12 w-32 sm:h-14 sm:w-40 md:h-16 md:w-48 overflow-hidden">
-              <Image
-                src="/logo.PNG"
-                alt="Puntas Azules Logo"
-                fill
-                className="object-contain transform group-hover:scale-105 transition-transform duration-300"
-                priority
-                quality={75}
-              />
+              <div className="w-full h-full bg-red-600 transform group-hover:scale-105 transition-transform duration-300" />
               <div className="absolute inset-0 bg-gradient-to-br from-[#5197A6]/0 via-[#5197A6]/0 to-[#5197A6]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
           </Link>
@@ -73,13 +65,7 @@ const Navbar = () => {
                 className="flex items-center space-x-3 group"
               >
                 <div className="relative h-10 w-10 rounded-full overflow-hidden border-2 border-white/20 group-hover:border-[#5197A6]/50 transition-colors">
-                  <Image
-                    src="/whiskey-1.webp"
-                    alt="Profile"
-                    fill
-                    className="object-cover"
-                    quality={60}
-                  />
+                  <div className="w-full h-full bg-red-600" />
                 </div>
                 <ChevronDown 
                   className={`h-4 w-4 text-white/80 group-hover:text-[#5197A6] transition-all duration-200 ${

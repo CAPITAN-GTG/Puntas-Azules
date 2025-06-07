@@ -1,6 +1,5 @@
 'use client'
 import React, { useState } from 'react'
-import Image from 'next/image'
 import { Sparkles, ArrowRight, Star, ChevronRight, ChevronLeft } from 'lucide-react'
 import Slider from 'react-slick'
 import { cormorantGaramond } from '../fonts'
@@ -74,16 +73,7 @@ const FeaturedProducts = () => {
             {featuredProducts.map((product, index) => (
               <div key={product.id} className="px-4">
                 <div className="relative h-[500px] rounded-none overflow-hidden group">
-                  <Image
-                    src={product.image}
-                    alt={product.name}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover transition-all duration-500 group-hover:brightness-75"
-                    quality={65}
-                    loading={index === 0 ? "eager" : "lazy"}
-                    priority={index === 0}
-                  />
+                  <div className="w-full h-full bg-red-600 transition-all duration-500 group-hover:brightness-75" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-6">
                     <div className="flex items-center mb-2">

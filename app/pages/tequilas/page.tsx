@@ -1,6 +1,5 @@
 "use client"
 import React, { useState } from 'react'
-import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, ShoppingCart, Star, Award, Leaf, ZoomIn } from 'lucide-react'
 import { cormorantGaramond } from '../../fonts'
@@ -96,14 +95,7 @@ const ProductPage = () => {
               {/* Image Section */}
               <div className="relative aspect-[4/5]">
                 <div className="absolute inset-0">
-                  <Image
-                    src={product.image}
-                    alt={product.name}
-                    fill
-                    className="object-cover"
-                    quality={65}
-                    loading="lazy"
-                  />
+                  <div className="w-full h-full bg-red-600" />
                 </div>
                 {/* Zoom Button */}
                 <button
@@ -170,15 +162,7 @@ const ProductPage = () => {
               onClick={e => e.stopPropagation()}
             >
               <div className="relative w-full h-full">
-                <Image
-                  src={selectedImage}
-                  alt="Product Preview"
-                  fill
-                  className="object-contain"
-                  quality={80}
-                  sizes="(max-width: 768px) 90vw, (max-width: 1200px) 80vw, 70vw"
-                  priority
-                />
+                <div className="w-full h-full bg-red-600" />
               </div>
               <button
                 className="absolute top-4 right-4 text-white hover:text-[#5197A6] transition-colors bg-black/50 rounded-full p-2"

@@ -1,6 +1,5 @@
 "use client"
 import React from 'react'
-import Image from 'next/image'
 import { ShoppingCart, User, LogOut } from 'lucide-react'
 import { cormorantGaramond } from '../../fonts'
 import { useCart } from '../../context/CartContext'
@@ -64,12 +63,7 @@ const AccountPage = () => {
                     {items.map((item) => (
                       <div key={item.id} className="p-6 flex items-center space-x-6">
                         <div className="relative h-24 w-24 flex-shrink-0">
-                          <Image
-                            src={item.image}
-                            alt={item.name}
-                            fill
-                            className="object-cover rounded-lg"
-                          />
+                          <div className="w-full h-full bg-red-600 rounded-lg" />
                         </div>
                         <div className="flex-grow">
                           <h3 className={`text-lg font-bold mb-1 ${cormorantGaramond.className}`}>
