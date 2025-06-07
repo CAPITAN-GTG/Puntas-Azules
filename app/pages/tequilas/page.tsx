@@ -39,12 +39,6 @@ const ProductPage = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
   const { addToCart } = useCart()
 
-  const fadeInUp = {
-    initial: { opacity: 0, y: 20 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 }
-  }
-
   const handleAddToCart = (e: React.MouseEvent, product: typeof products[0]) => {
     e.preventDefault()
     e.stopPropagation()
@@ -76,12 +70,7 @@ const ProductPage = () => {
     <main className="min-h-screen bg-black text-white py-20">
       {/* Header */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center"
-        >
+        <div className="text-center">
           <div className="flex items-center justify-center mb-6">
             <div className="h-px w-12 bg-[#5197A6] mr-4" />
             <span className="text-[#5197A6] font-light tracking-widest">OUR TEQUILAS</span>
@@ -93,20 +82,15 @@ const ProductPage = () => {
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
             Discover our carefully crafted tequilas, each telling its own story of tradition and excellence.
           </p>
-        </motion.div>
+        </div>
       </div>
 
       {/* Products Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.map((product, index) => (
-            <motion.div
+          {products.map((product) => (
+            <div
               key={product.id}
-              variants={fadeInUp}
-              initial="initial"
-              whileInView="animate"
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.2 }}
               className="group bg-white/5 backdrop-blur-sm border border-white/10 hover:border-[#5197A6]/50 transition-colors"
             >
               {/* Image Section */}
@@ -157,11 +141,7 @@ const ProductPage = () => {
                 <motion.button 
                   onClick={(e) => handleAddToCart(e, product)}
                   whileTap={{ scale: 0.95 }}
-                  whileHover={{ 
-                    scale: 1.02,
-                    backgroundColor: "#5197A6",
-                    boxShadow: "0 0 15px rgba(81, 151, 166, 0.5)"
-                  }}
+                  whileHover={{ scale: 1.02 }}
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
                   className="w-full bg-[#5197A6] text-black py-3 font-bold hover:bg-[#5197A6]/90 transition-colors flex items-center justify-center space-x-2"
                 >
@@ -169,7 +149,7 @@ const ProductPage = () => {
                   <span>Add to Cart</span>
                 </motion.button>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
@@ -184,10 +164,7 @@ const ProductPage = () => {
             className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4 md:p-8"
             onClick={() => setSelectedImage(null)}
           >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
+            <div
               className="relative w-full h-full max-w-[90vw] max-h-[90vh]"
               onClick={e => e.stopPropagation()}
             >
@@ -208,7 +185,7 @@ const ProductPage = () => {
               >
                 <X className="h-6 w-6" />
               </button>
-            </motion.div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

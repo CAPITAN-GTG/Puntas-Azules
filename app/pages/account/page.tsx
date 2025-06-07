@@ -1,7 +1,6 @@
 "use client"
 import React from 'react'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
 import { ShoppingCart, User, LogOut } from 'lucide-react'
 import { cormorantGaramond } from '../../fonts'
 import { useCart } from '../../context/CartContext'
@@ -9,22 +8,11 @@ import { useCart } from '../../context/CartContext'
 const AccountPage = () => {
   const { items, removeFromCart, updateQuantity, total } = useCart()
 
-  const fadeInUp = {
-    initial: { opacity: 0, y: 20 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 }
-  }
-
   return (
     <main className="min-h-screen bg-black text-white py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <div className="flex items-center justify-center mb-6">
             <div className="h-px w-12 bg-[#5197A6] mr-4" />
             <span className="text-[#5197A6] font-light tracking-widest">MY ACCOUNT</span>
@@ -33,16 +21,11 @@ const AccountPage = () => {
           <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-6 ${cormorantGaramond.className}`}>
             Welcome Back
           </h1>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Sidebar */}
-          <motion.div
-            variants={fadeInUp}
-            initial="initial"
-            animate="animate"
-            className="lg:col-span-1"
-          >
+          <div className="lg:col-span-1">
             <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 border border-white/10">
               <div className="flex items-center space-x-4 mb-8">
                 <div className="h-16 w-16 rounded-full bg-[#5197A6]/20 flex items-center justify-center">
@@ -59,15 +42,10 @@ const AccountPage = () => {
                 <span>Sign Out</span>
               </button>
             </div>
-          </motion.div>
+          </div>
 
           {/* Main Content - Cart */}
-          <motion.div
-            variants={fadeInUp}
-            initial="initial"
-            animate="animate"
-            className="lg:col-span-2"
-          >
+          <div className="lg:col-span-2">
             <div className="bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 overflow-hidden">
               <div className="p-6 border-b border-white/10">
                 <div className="flex items-center space-x-3">
@@ -142,7 +120,7 @@ const AccountPage = () => {
                 </>
               )}
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </main>

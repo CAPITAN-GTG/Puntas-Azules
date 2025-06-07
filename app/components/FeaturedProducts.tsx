@@ -1,7 +1,6 @@
 'use client'
 import React, { useState } from 'react'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
 import { Sparkles, ArrowRight, Star, ChevronRight, ChevronLeft } from 'lucide-react'
 import Slider from 'react-slick'
 import { cormorantGaramond } from '../fonts'
