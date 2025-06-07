@@ -1,5 +1,6 @@
 'use client'
 import React from 'react'
+import Image from 'next/image'
 import { Sparkles, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import { cormorantGaramond } from '../fonts'
@@ -17,7 +18,15 @@ const CategoriesGrid = () => {
         {categories.map((category) => (
           <Link href="/pages/tequilas" key={category.name}>
             <div className="group relative h-[400px] overflow-hidden cursor-pointer">
-              <div className="w-full h-full bg-red-600 transition-transform duration-500 group-hover:scale-110" />
+              <Image
+                src={category.image}
+                alt={category.name}
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
+                quality={65}
+                loading="lazy"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6">
                 <div className="flex items-center mb-2">
