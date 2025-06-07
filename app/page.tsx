@@ -115,9 +115,15 @@ const FrontPage = () => {
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link
                     href="/pages/tequilas"
-                    className="bg-[#5197A6] text-black px-8 py-3 rounded-full text-sm font-bold hover:bg-[#5197A6]/90 transition-colors"
+                    className="group relative bg-[#5197A6] text-black px-8 py-4 font-bold hover:bg-[#5197A6]/90 transition-all duration-300 flex items-center justify-center"
                   >
-                    Explore Our Tequilas
+                    <span className="relative z-10">Explore Our Tequilas</span>
+                    <motion.div
+                      className="absolute inset-0 bg-black/10"
+                      initial={{ scale: 0 }}
+                      whileHover={{ scale: 1 }}
+                      transition={{ duration: 0.3 }}
+                    />
                   </Link>
                   <Link href="/pages/about">
                     <motion.button
@@ -249,68 +255,41 @@ const FrontPage = () => {
               { name: 'Reposado', image: '/whiskey-reposado.jpg', count: 'Golden Smooth', description: 'Aged 2-12 months in oak barrels, achieving perfect balance between agave and wood.' },
               { name: 'Añejo', image: '/whiskey-anejo.jpg', count: 'Rich & Complex', description: 'Aged over a year in oak barrels, developing deep complexity and amber richness.' }
             ].map((category, index) => (
-              <motion.div
-                key={category.name}
-                ref={ref}
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group relative"
-              >
-                <div className="relative h-[400px] overflow-hidden border border-white/10 hover:border-[#5197A6]/50 transition-colors">
+              <Link href="/pages/tequilas" key={category.name}>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  whileHover={{ y: -5 }}
+                  className="group relative h-[400px] overflow-hidden cursor-pointer"
+                >
                   <Image
                     src={category.image}
                     alt={category.name}
                     fill
-                    className="object-cover transition-all duration-500 group-hover:scale-105"
-                    quality={60}
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    quality={75}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
-                  
-                  {/* Category Content */}
-                  <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                    <div className="mb-4">
-                      <div className="h-px w-12 bg-[#5197A6] mb-4" />
-                      <h3 className={`text-3xl font-bold mb-2 ${cormorantGaramond.className}`}>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <div className="flex items-center mb-2">
+                      <Sparkles className="h-5 w-5 text-[#5197A6] mr-2" />
+                      <h3 className={`text-2xl font-bold ${cormorantGaramond.className}`}>
                         {category.name}
                       </h3>
-                      <p className="text-[#5197A6] text-sm tracking-wider">
-                        {category.count}
-                      </p>
                     </div>
-                    
-                    {/* Hover Content */}
-                    <div className="transform translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                      <div className="h-px w-full bg-white/20 mb-4" />
-                      <p className="text-gray-300 mb-6">
-                        {category.description}
-                      </p>
-                      <motion.button
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        className="text-white hover:text-[#5197A6] transition-colors flex items-center border-b border-transparent hover:border-[#5197A6] pb-1"
-                      >
-                        View Collection
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                      </motion.button>
+                    <p className="text-[#5197A6] text-lg mb-2">{category.count}</p>
+                    <p className="text-gray-300 text-sm mb-4">{category.description}</p>
+                    <div className="flex items-center text-white group-hover:text-[#5197A6] transition-colors">
+                      <span className="text-sm font-medium">View Collection</span>
+                      <ArrowRight className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
-                </div>
-              </motion.div>
+                </motion.div>
+              </Link>
             ))}
           </div>
 
-          {/* View All Categories Button */}
-          <div className="mt-16 text-center">
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="bg-transparent text-white px-8 py-4 font-semibold border border-white/20 hover:border-white/40 transition-colors flex items-center justify-center mx-auto"
-            >
-              View All Tequilas
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </motion.button>
-          </div>
         </div>
       </section>
 
