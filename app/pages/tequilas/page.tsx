@@ -13,7 +13,7 @@ const products = [
     id: 1,
     name: "Puntas Azules Blanco",
     description: "Our signature Blanco tequila, crafted from 100% Blue Weber agave. Clean, crisp, and perfect for any occasion.",
-    image: "/product-blanco.webp",
+    image: "/product-blanco.jpeg",
     price: 49.99,
     features: ["100% Blue Weber Agave", "Double Distilled", "Unaged"]
   },
@@ -21,7 +21,7 @@ const products = [
     id: 2,
     name: "Puntas Azules Reposado",
     description: "Aged for 6 months in American oak barrels, our Reposado offers a perfect balance of agave and oak flavors.",
-    image: "/product-reposado.webp",
+    image: "/product-reposado.jpeg",
     price: 59.99,
     features: ["6 Months Aged", "American Oak", "Smooth Finish"]
   },
@@ -29,7 +29,7 @@ const products = [
     id: 3,
     name: "Puntas Azules Añejo",
     description: "Our premium Añejo, aged for 18 months in French oak barrels, delivering complex flavors and smooth finish.",
-    image: "/product-anejo.webp",
+    image: "/product-anejo.jpeg",
     price: 79.99,
     features: ["18 Months Aged", "French Oak", "Premium Quality"]
   }

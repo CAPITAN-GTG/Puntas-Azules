@@ -12,7 +12,7 @@ const AboutPage = () => {
       <section className="relative h-[50vh] min-h-[400px]">
         <div className="absolute inset-0">
           <Image
-            src="/whiskey-types.webp"
+            src="/whiskey-types.jpeg"
             alt="Agave Fields"
             fill
             sizes="100vw"
@@ -85,7 +85,7 @@ const AboutPage = () => {
               </div>
               <div className="relative h-[250px] rounded-lg overflow-hidden">
                 <Image
-                  src="/background.webp"
+                  src="/background.jpeg"
                   alt="Production Process"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"

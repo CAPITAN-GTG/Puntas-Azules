@@ -74,7 +74,7 @@ const Navbar = () => {
               >
                 <div className="relative h-10 w-10 rounded-full overflow-hidden border-2 border-white/20 group-hover:border-[#5197A6]/50 transition-colors">
                   <Image
-                    src="/whiskey-1.webp"
+                    src="/whiskey-1.jpeg"
                     alt="Profile"
                     fill
                     className="object-cover"

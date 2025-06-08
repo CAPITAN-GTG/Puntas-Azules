@@ -10,7 +10,7 @@ const HeroSection = () => {
     <div className="relative h-[80vh]">
       <div className="absolute inset-0">
         <Image
-          src="/whiskey-1.webp"
+          src="/whiskey-1.jpeg"
           alt="Hero Background"
           fill
           sizes="100vw"
