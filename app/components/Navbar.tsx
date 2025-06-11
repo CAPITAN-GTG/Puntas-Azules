@@ -2,8 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Wine, User, ShoppingCart, LogOut, ChevronDown, Search, Menu, Package, Info, X } from "lucide-react";
-import { cormorantGaramond } from "../fonts";
+import { Wine, User, ShoppingCart, LogOut, ChevronDown, Menu, Info, X } from "lucide-react";
 import { useCart } from '../context/CartContext'
 
 const Navbar = () => {
@@ -13,7 +12,7 @@ const Navbar = () => {
   const itemCount = items.reduce((sum, item) => sum + item.quantity, 0)
   
   return (
-    <nav className="bg-black backdrop-blur-md fixed w-full z-50 border-b border-black/10">
+    <nav className="bg-white backdrop-blur-md fixed w-full z-50 border-b border-black/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo and Brand */}
@@ -35,14 +34,14 @@ const Navbar = () => {
           <div className="hidden md:flex items-center space-x-8">
             <Link
               href="/pages/tequilas"
-              className="text-white hover:text-[#5197A6] transition-colors flex items-center space-x-2 group"
+              className="text-black hover:text-[#5197A6] transition-colors flex items-center space-x-2 group"
             >
               <Wine className="h-5 w-5 group-hover:text-[#5197A6] transition-colors" />
               <span className="text-sm tracking-wider">TEQUILAS</span>
             </Link>
             <Link
               href="/pages/about"
-              className="text-white hover:text-[#5197A6] transition-colors flex items-center space-x-2 group"
+              className="text-black hover:text-[#5197A6] transition-colors flex items-center space-x-2 group"
             >
               <Info className="h-5 w-5 group-hover:text-[#5197A6] transition-colors" />
               <span className="text-sm tracking-wider">ABOUT</span>
@@ -55,7 +54,7 @@ const Navbar = () => {
             {/* Cart */}
             <Link
               href="/pages/account"
-              className="relative text-white hover:text-[#5197A6] transition-colors"
+              className="relative text-gray-500 hover:text-[#5197A6] transition-colors"
             >
               <ShoppingCart className="h-5 w-5" />
               {itemCount > 0 && (
@@ -83,7 +82,7 @@ const Navbar = () => {
                   />
                 </div>
                 <ChevronDown 
-                  className={`h-4 w-4 text-white group-hover:text-[#5197A6] transition-all duration-200 ${
+                  className={`h-4 w-4 text-black group-hover:text-[#5197A6] transition-all duration-200 ${
                     isDropdownOpen ? 'rotate-180' : ''
                   }`} 
                 />
@@ -117,7 +116,7 @@ const Navbar = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden text-white hover:text-[#5197A6] transition-colors"
+              className="md:hidden text-black hover:text-[#5197A6] transition-colors"
             >
               {isMobileMenuOpen ? (
                 <X className="h-6 w-6" />
@@ -134,14 +133,14 @@ const Navbar = () => {
             <div className="flex flex-col space-y-4">
               <Link
                 href="/pages/tequilas"
-                className="text-white hover:text-[#5197A6] transition-colors flex items-center space-x-2 px-4"
+                className="text-black hover:text-[#5197A6] transition-colors flex items-center space-x-2 px-4"
               >
                 <Wine className="h-5 w-5" />
                 <span>TEQUILAS</span>
               </Link>
               <Link
                 href="/pages/about"
-                className="text-white hover:text-[#5197A6] transition-colors flex items-center space-x-2 px-4"
+                className="text-black hover:text-[#5197A6] transition-colors flex items-center space-x-2 px-4"
               >
                 <Info className="h-5 w-5" />
                 <span>ABOUT</span>
