@@ -18,7 +18,7 @@ const Footer = () => {
                   src="/logo.PNG"
                   alt="Puntas Azules Logo"
                   fill
-                  className="object-contain"
+                  className="object-contain hover:scale-110 hover:rotate-360 transition-all duration-600"
                   quality={50}
                   sizes="128px"
                   loading="lazy"

@@ -1,9 +1,9 @@
 'use client'
 import React, { useRef, useEffect } from 'react'
 import Image from 'next/image'
-import { Wine, Sparkles, Award, Gift, ArrowDown, Play, Pause } from 'lucide-react'
+import { Play, Pause } from 'lucide-react'
 import Link from 'next/link'
-import { cormorantGaramond } from '../fonts'
+import { playfairDisplayBold } from '../fonts'
 
 const HeroSection = () => {
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -12,6 +12,8 @@ const HeroSection = () => {
 
   useEffect(() => {
     if (videoRef.current) {
+      // Make video play slower for cinematic effect
+      videoRef.current.playbackRate = 0.7
       videoRef.current.play()
     }
   }, [])
@@ -36,12 +38,14 @@ const HeroSection = () => {
 
   return (
     <>
+      {/* Hero Section */}
       <div className="relative h-screen overflow-hidden">
         {/* Video Background */}
         <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-black opacity-50" />
           <video
             ref={videoRef}
-            className="w-full h-full object-cover scale-105 blur-[3px]"
+            className="w-full h-full object-cover"
             autoPlay
             muted
             loop
@@ -64,271 +68,131 @@ const HeroSection = () => {
           <div className="absolute top-4 right-4 z-20 flex gap-2">
             <button
               onClick={togglePlayPause}
-              className="bg-black/30 hover:bg-black/50 text-white p-2 rounded-full backdrop-blur-sm transition-all duration-300"
+              className="bg-white/20 hover:bg-white/30 text-black p-2 backdrop-blur-sm transition-all duration-300 border border-black/20"
               aria-label={isPlaying ? 'Pause video' : 'Play video'}
             >
               {isPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
             </button>
             <button
               onClick={toggleMute}
-              className="bg-black/30 hover:bg-black/50 text-white p-2 rounded-full backdrop-blur-sm transition-all duration-300"
+              className="bg-white/20 hover:bg-white/30 text-black p-2 backdrop-blur-sm transition-all duration-300 border border-black/20"
               aria-label={isMuted ? 'Unmute video' : 'Mute video'}
             >
               <span className="text-xs font-bold">{isMuted ? 'M' : 'U'}</span>
             </button>
           </div>
-          
-          {/* Gradient Overlays */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/70" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-black/30" />
         </div>
         
-        <div className="relative h-full flex items-center">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <div className="grid lg:grid-cols-12 gap-6 md:gap-8 lg:gap-12 items-center">
-              {/* Left Column - Main Content */}
-              <div className="lg:col-span-7 text-left px-2 sm:px-0">
-                {/* Brand Label */}
-                <div className="flex items-center mb-4 sm:mb-6">
-                  <div className="h-px w-8 sm:w-12 bg-[#5197A6] mr-3 sm:mr-4" />
-                  <span className="text-[#5197A6] font-light tracking-widest text-xs sm:text-sm md:text-base">
-                    PUNTAS AZULES PREMIUM
-                  </span>
-                </div>
-                
-                {/* Main Headline - Improved responsive sizing */}
-                <h1 className={`
-                  text-2xl 
-                  xs:text-3xl 
-                  sm:text-4xl 
-                  md:text-5xl 
-                  lg:text-5xl 
-                  xl:text-6xl 
-                  2xl:text-7xl 
-                  font-bold 
-                  mb-4 
-                  sm:mb-6 
-                  leading-tight 
-                  md:leading-tight
-                  ${cormorantGaramond.className}
-                `}>
-                  <span className="block">Discover the Soul of</span>
-                  <span className="block text-[#5197A6] mt-1 sm:mt-2">Mexico's Finest</span>
-                </h1>
-                
-                {/* Description - Better responsive text */}
-                <p className="
-                  text-sm 
-                  sm:text-base 
-                  md:text-lg 
-                  lg:text-xl 
-                  text-gray-200 
-                  mb-6 
-                  sm:mb-8 
-                  max-w-none 
-                  sm:max-w-xl 
-                  md:max-w-2xl 
-                  leading-relaxed 
-                  md:leading-relaxed
-                ">
-                  Experience the authentic taste of premium tequila in three distinct presentations: 
-                  Blanco, Reposado, and Añejo. Each bottle tells a story of tradition and craftsmanship.
-                </p>
-                
-                {/* Buttons - Improved responsive layout */}
-                <div className="flex flex-col xs:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8">
-                  <Link
-                    href="/pages/tequilas"
-                    className="
-                      group 
-                      relative 
-                      bg-[#5197A6] 
-                      text-black 
-                      px-5 
-                      sm:px-6 
-                      md:px-8 
-                      py-3 
-                      sm:py-3.5 
-                      md:py-4 
-                      font-bold 
-                      hover:bg-[#5197A6]/90 
-                      transition-all 
-                      duration-300 
-                      flex 
-                      items-center 
-                      justify-center 
-                      text-sm 
-                      sm:text-base 
-                      rounded-sm
-                      min-w-0
-                      flex-1
-                      xs:flex-initial
-                    "
-                  >
-                    <span className="relative z-10 whitespace-nowrap">Explore Our Tequilas</span>
-                    <div className="absolute inset-0 bg-black/10 scale-0 group-hover:scale-100 transition-transform duration-300 rounded-sm" />
-                  </Link>
-                  
-                  <Link href="/pages/about" className="min-w-0 flex-1 xs:flex-initial">
-                    <button className="
-                      w-full
-                      bg-transparent 
-                      text-white 
-                      px-5 
-                      sm:px-6 
-                      md:px-8 
-                      py-3 
-                      sm:py-3.5 
-                      md:py-4 
-                      font-semibold 
-                      border 
-                      border-white/30 
-                      hover:border-white/50 
-                      hover:bg-white/5
-                      transition-all
-                      duration-300
-                      flex 
-                      items-center 
-                      justify-center 
-                      text-sm 
-                      sm:text-base
-                      rounded-sm
-                    ">
-                      <span className="whitespace-nowrap">Learn More</span>
-                      <ArrowDown className="ml-2 h-4 w-4 sm:h-4 sm:w-4 md:h-5 md:w-5" />
-                    </button>
-                  </Link>
-                </div>
-              </div>
-
-              {/* Right Column - Portrait Banner (Desktop Only) */}
-              <div className="lg:col-span-5 hidden lg:flex justify-center items-center">
-                <div className="relative w-full max-w-sm xl:max-w-md">
-                  {/* Portrait Banner Image - Fixed container with proper aspect ratio */}
-                  <div className="relative aspect-[2/3] w-full">
-                    <Image
-                      src="/pa-banner-portrait.jpeg"
-                      alt="Puntas Azules Premium Tequila"
-                      fill
-                      className="object-contain object-center rounded-lg shadow-2xl"
-                      priority
-                      quality={95}
-                      sizes="(max-width: 1024px) 0px, (max-width: 1280px) 400px, 500px"
-                    />
-                    
-                    {/* Elegant overlay with brand info */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent rounded-lg" />
-                    
-                    {/* Brand highlight */}
-                    <div className="absolute bottom-0 left-0 right-0 p-4 xl:p-6 text-center">
-                      <div className="bg-[#5197A6]/20 backdrop-blur-sm rounded-lg p-3 xl:p-4 border border-[#5197A6]/30">
-                        <h3 className={`text-lg xl:text-xl font-bold text-white mb-1 xl:mb-2 ${cormorantGaramond.className}`}>
-                          Puntas Azules
-                        </h3>
-                        <p className="text-xs xl:text-sm text-gray-200">
-                          Premium Tequila Collection
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Decorative elements */}
-                  <div className="absolute -top-4 -right-4 w-8 h-8 border-t-2 border-r-2 border-[#5197A6]/50" />
-                  <div className="absolute -bottom-4 -left-4 w-8 h-8 border-b-2 border-l-2 border-[#5197A6]/50" />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Scroll Indicator */}
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center">
-            <span className="text-xs sm:text-sm text-gray-300 mb-2 text-center">Scroll to Explore</span>
-            <div className="animate-bounce">
-              <ArrowDown className="h-5 w-5 sm:h-6 sm:w-6 text-[#5197A6]" />
-            </div>
+        {/* Hero Content */}
+        <div className="relative h-full flex items-center justify-center">
+          <div className="text-center px-4">
+            
+            {/* Main Call to Action */}
+            <h1 className={`text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-white mb-8 leading-tight ${playfairDisplayBold.className}`}>
+              <span className="block mb-2">
+                Discover
+              </span>
+              <span className="relative inline-block">
+                <span className="text-[#5197A6] italic relative">
+                  Excellence
+                  <div className="absolute bottom-1 left-0 right-0 h-1 bg-[#5197A6] opacity-30" />
+                </span>
+              </span>
+            </h1>
+            
+            {/* Subtitle */}
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/90 mb-10 font-medium max-w-2xl mx-auto">
+              Premium Mexican <span className="text-[#5197A6] italic font-bold">Tequila</span> Crafted for Connoisseurs
+            </p>
+            
+            {/* Shop Button */}
+            <Link href="/pages/tequilas">
+              <button className="bg-black text-white px-12 py-4 text-xl font-bold hover:bg-gray-900 transition-all duration-300 border-2 border-black hover:border-[#5197A6]">
+                SHOP NOW
+              </button>
+            </Link>
+            
           </div>
         </div>
       </div>
 
-      {/* Mobile Banner Section */}
-      <div className="lg:hidden relative py-16 bg-gradient-to-br from-black via-gray-900 to-black">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+      {/* Banner Section */}
+      <section className="py-16 lg:py-24 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Section Header */}
           <div className="text-center mb-12">
-            <div className="flex items-center justify-center mb-4">
-              <div className="h-px w-12 bg-[#5197A6] mr-4" />
-              <span className="text-[#5197A6] font-light tracking-widest text-sm">
-                PREMIUM COLLECTION
-              </span>
-              <div className="h-px w-12 bg-[#5197A6] ml-4" />
-            </div>
-            <h2 className={`text-2xl sm:text-3xl font-bold text-white mb-4 ${cormorantGaramond.className}`}>
-              Puntas Azules Heritage
+            <div className="w-20 h-px bg-[#5197A6] mx-auto mb-6" />
+            <h2 className={`text-3xl lg:text-4xl font-bold text-black mb-4 ${playfairDisplayBold.className}`}>
+              Puntas <span className="text-[#5197A6]">Azules</span>
             </h2>
-            <p className="text-gray-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-              Crafted with passion and tradition, our premium tequila collection represents 
-              the finest expressions of Mexican craftsmanship.
+            <p className="text-gray-600 text-lg">
+              Crafted with tradition, perfected through time
             </p>
           </div>
 
-          <div className="relative max-w-md mx-auto">
-            {/* Mobile Banner Image */}
-            <div className="relative aspect-[3/4] w-full">
-              <Image
-                src="/pa-banner-portrait.jpeg"
-                alt="Puntas Azules Premium Tequila Collection"
-                fill
-                className="object-cover object-center rounded-xl shadow-2xl"
-                quality={95}
-                sizes="(max-width: 640px) 300px, 400px"
-              />
-              
-              {/* Elegant mobile overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/20 rounded-xl" />
-              
-              {/* Mobile brand highlight */}
-              <div className="absolute bottom-0 left-0 right-0 p-6 text-center">
-                <div className="bg-[#5197A6]/25 backdrop-blur-md rounded-lg p-4 border border-[#5197A6]/40">
-                  <h3 className={`text-xl font-bold text-white mb-1 ${cormorantGaramond.className}`}>
-                    Puntas Azules
-                  </h3>
-                  <p className="text-sm text-gray-200 mb-3">
-                    Premium Tequila Collection
-                  </p>
-                  <div className="flex justify-center space-x-2">
-                    {['Blanco', 'Reposado', 'Añejo'].map((type) => (
-                      <span 
-                        key={type}
-                        className="text-xs bg-[#5197A6]/30 text-white px-2 py-1 rounded border border-[#5197A6]/50"
-                      >
-                        {type}
-                      </span>
-                    ))}
-                  </div>
+          {/* Banner Content */}
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            
+            {/* Banner Image */}
+            <div className="order-2 lg:order-1">
+              <div className="relative max-w-md mx-auto">
+                <div className="relative aspect-[2/3] w-full">
+                  <Image
+                    src="/pa-banner-portrait.jpeg"
+                    alt="Puntas Azules Premium Tequila Collection"
+                    fill
+                    className="object-contain object-center"
+                    quality={95}
+                    sizes="(max-width: 1024px) 400px, 500px"
+                  />
                 </div>
+                
+                {/* Decorative Lines */}
+                <div className="absolute -top-2 -right-2 w-8 h-8 border-t-2 border-r-2 border-[#5197A6]" />
+                <div className="absolute -bottom-2 -left-2 w-8 h-8 border-b-2 border-l-2 border-[#5197A6]" />
               </div>
             </div>
 
-            {/* Decorative mobile elements */}
-            <div className="absolute -top-3 -right-3 w-6 h-6 border-t-2 border-r-2 border-[#5197A6]/60" />
-            <div className="absolute -bottom-3 -left-3 w-6 h-6 border-b-2 border-l-2 border-[#5197A6]/60" />
-            
-            {/* Floating accent elements */}
-            <div className="absolute top-1/4 -left-4 w-8 h-8 bg-[#5197A6]/20 rounded-full blur-sm" />
-            <div className="absolute bottom-1/4 -right-4 w-6 h-6 bg-[#5197A6]/15 rounded-full blur-sm" />
-          </div>
-
-          {/* Mobile Call to Action */}
-          <div className="text-center mt-12">
-            <Link
-              href="/pages/tequilas"
-              className="inline-flex items-center bg-[#5197A6] text-black px-8 py-3 font-bold hover:bg-[#5197A6]/90 transition-all duration-300 rounded-sm"
-            >
-              <span>Explore Collection</span>
-              <ArrowDown className="ml-2 h-4 w-4 rotate-[-90deg]" />
-            </Link>
+            {/* Content */}
+            <div className="order-1 lg:order-2 text-center lg:text-left">
+              
+              <h3 className={`text-2xl lg:text-3xl font-bold text-black mb-6 ${playfairDisplayBold.className}`}>
+                Three Expressions,
+                <br />
+                <span className="text-[#5197A6]">One Legacy</span>
+              </h3>
+              
+              <p className="text-gray-700 text-lg leading-relaxed mb-8">
+                From the crystal clarity of Blanco to the rich complexity of Añejo, 
+                each bottle represents generations of Mexican craftsmanship and tradition.
+              </p>
+              
+              <div className="space-y-4 mb-8">
+                <div className="flex items-center justify-center lg:justify-start">
+                  <div className="w-3 h-px bg-[#5197A6] mr-4" />
+                  <span className="text-gray-800 font-medium">100% Blue Weber Agave</span>
+                </div>
+                <div className="flex items-center justify-center lg:justify-start">
+                  <div className="w-3 h-px bg-[#5197A6] mr-4" />
+                  <span className="text-gray-800 font-medium">Highland Distillery</span>
+                </div>
+                <div className="flex items-center justify-center lg:justify-start">
+                  <div className="w-3 h-px bg-[#5197A6] mr-4" />
+                  <span className="text-gray-800 font-medium">Master Crafted</span>
+                </div>
+              </div>
+              
+              <Link href="/pages/tequilas">
+                <button className="bg-[#5197A6] text-white px-8 py-3 font-bold hover:bg-[#5197A6]/90 transition-all duration-300 border-2 border-[#5197A6] hover:border-black">
+                  EXPLORE COLLECTION
+                </button>
+              </Link>
+              
+            </div>
           </div>
         </div>
-      </div>
+      </section>
     </>
   )
 }

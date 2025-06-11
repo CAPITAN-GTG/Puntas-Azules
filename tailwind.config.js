@@ -22,7 +22,7 @@ module.exports = {
     },
   },
   plugins: [],
-  // Disable animations on devices that prefer reduced motion
+  // Disable animations on devices that prefer reduced motion (aka mobile view optimization)
   variants: {
     extend: {
       animation: ['motion-safe'],

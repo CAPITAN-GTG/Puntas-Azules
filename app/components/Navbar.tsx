@@ -23,12 +23,11 @@ const Navbar = () => {
                 src="/logo.PNG"
                 alt="Puntas Azules Logo"
                 fill
-                className="object-contain transform group-hover:scale-105 transition-transform duration-300"
+                className="object-contain transform group-hover:scale-110 hover:rotate-360 transition-all duration-600"
                 priority
                 quality={50}
                 sizes="(max-width: 768px) 128px, (max-width: 1200px) 160px, 192px"
               />
-              <div className="absolute inset-0 bg-gradient-to-br from-[#5197A6]/0 via-[#5197A6]/0 to-[#5197A6]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
           </Link>
 
