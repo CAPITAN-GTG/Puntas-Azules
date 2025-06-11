@@ -23,7 +23,7 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
   render() {
     if (this.state.hasError) {
       return (
-        <div className="h-screen bg-black flex items-center justify-center text-white">
+        <div className="h-screen bg-white flex items-center justify-center text-black">
           Something went wrong. Please try refreshing the page.
         </div>
       )

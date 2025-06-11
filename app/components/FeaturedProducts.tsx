@@ -6,6 +6,7 @@ import Slider from 'react-slick'
 import { cormorantGaramond } from '../fonts'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
+import Link from 'next/link'
 
 const FeaturedProducts = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
@@ -13,7 +14,7 @@ const FeaturedProducts = () => {
   const NextArrow = ({ onClick }: { onClick?: () => void }) => (
     <button
       onClick={onClick}
-      className="absolute right-2 lg:right-4 top-1/2 -translate-y-1/2 z-10 bg-black/60 hover:bg-black/80 text-white p-2 rounded-full border border-white/20 hover:border-white/40 transition-all shadow-lg"
+      className="absolute right-2 lg:right-4 top-1/2 -translate-y-1/2 z-10 bg-white/60 hover:bg-white/80 text-black p-2 rounded-full border border-black/20 hover:border-black/40 transition-all shadow-lg"
     >
       <ChevronRight className="h-5 w-5 lg:h-6 lg:w-6" />
     </button>
@@ -22,7 +23,7 @@ const FeaturedProducts = () => {
   const PrevArrow = ({ onClick }: { onClick?: () => void }) => (
     <button
       onClick={onClick}
-      className="absolute left-2 lg:left-4 top-1/2 -translate-y-1/2 z-10 bg-black/60 hover:bg-black/80 text-white p-2 rounded-full border border-white/20 hover:border-white/40 transition-all shadow-lg"
+      className="absolute left-2 lg:left-4 top-1/2 -translate-y-1/2 z-10 bg-white/60 hover:bg-white/80 text-black p-2 rounded-full border border-black/20 hover:border-black/40 transition-all shadow-lg"
     >
       <ChevronLeft className="h-5 w-5 lg:h-6 lg:w-6" />
     </button>
@@ -65,7 +66,7 @@ const FeaturedProducts = () => {
           className={`h-4 w-4 lg:h-5 lg:w-5 transition-all duration-300 ${
             i === currentSlide
               ? 'fill-[#5197A6] text-[#5197A6] scale-110'
-              : 'text-gray-400 hover:text-[#5197A6]'
+              : 'text-gray-600 hover:text-[#5197A6]'
           }`}
         />
       </div>
@@ -82,12 +83,12 @@ const FeaturedProducts = () => {
   ]
 
   return (
-    <section className="py-12 lg:py-16 px-4 bg-black">
+    <section className="py-12 lg:py-16 px-4 bg-white">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="flex items-center justify-center mb-8 lg:mb-12">
           <div className="h-px w-12 sm:w-16 lg:w-20 bg-[#5197A6] mr-4" />
-          <h2 className={`text-xl sm:text-2xl lg:text-3xl font-bold text-white ${cormorantGaramond.className}`}>
+          <h2 className={`text-xl sm:text-2xl lg:text-3xl font-bold text-black ${cormorantGaramond.className}`}>
             Featured Tequilas
           </h2>
           <div className="h-px w-12 sm:w-16 lg:w-20 bg-[#5197A6] ml-4" />
@@ -100,7 +101,7 @@ const FeaturedProducts = () => {
               <div key={product.id} className="px-2 sm:px-3 lg:px-4">
                 <div className="relative group">
                   {/* Image Container - Optimized for Portrait Images */}
-                  <div className="relative aspect-[2/3] sm:aspect-[3/4] bg-gradient-to-br from-gray-900 to-black rounded-lg overflow-hidden border border-white/10">
+                  <div className="relative aspect-[2/3] sm:aspect-[3/4] bg-gradient-to-br from-gray-100 to-white rounded-lg overflow-hidden border border-black/10">
                     <Image
                       src={product.image}
                       alt={product.name}
@@ -123,10 +124,10 @@ const FeaturedProducts = () => {
 
                   {/* Content Overlay */}
                   <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 lg:p-6">
-                    <div className="bg-black/40 backdrop-blur-sm rounded-lg p-3 sm:p-4 border border-white/20">
+                    <div className="bg-white/90 backdrop-blur-sm rounded-lg p-3 sm:p-4 border border-black/20">
                       <div className="flex items-center mb-2">
                         <Sparkles className="h-3 w-3 sm:h-4 sm:w-4 text-[#5197A6] mr-2 flex-shrink-0" />
-                        <h3 className={`text-sm sm:text-base lg:text-lg font-bold text-white leading-tight ${cormorantGaramond.className}`}>
+                        <h3 className={`text-sm sm:text-base lg:text-lg font-bold text-black leading-tight ${cormorantGaramond.className}`}>
                           {product.name}
                         </h3>
                       </div>
@@ -135,10 +136,10 @@ const FeaturedProducts = () => {
                         {product.price}
                       </p>
                       
-                      <button className="text-white hover:text-[#5197A6] transition-colors flex items-center border-b border-transparent hover:border-[#5197A6] pb-1 text-xs sm:text-sm group">
+                      <Link href="/pages/tequilas" className="text-black hover:text-[#5197A6] transition-colors flex items-center border-b border-transparent hover:border-[#5197A6] pb-1 text-xs sm:text-sm group">
                         <span>View Details</span>
                         <ArrowRight className="ml-2 h-3 w-3 transition-transform group-hover:translate-x-1" />
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 </div>

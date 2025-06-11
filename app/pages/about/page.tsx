@@ -7,7 +7,7 @@ import { cormorantGaramond } from '../../fonts'
 
 const AboutPage = () => {
   return (
-    <main className="min-h-screen bg-black text-white">
+    <main className="min-h-screen bg-white text-black">
       {/* Hero Section */}
       <section className="relative h-[50vh] min-h-[400px]">
         <div className="absolute inset-0">
@@ -33,7 +33,7 @@ const AboutPage = () => {
                 <span className="text-[#5197A6] font-light tracking-widest">OUR STORY</span>
                 <div className="h-px w-12 bg-[#5197A6] ml-4" />
               </div>
-              <h1 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-6 ${cormorantGaramond.className}`}>
+              <h1 className={`text-white text-3xl md:text-4xl lg:text-5xl font-bold mb-6 ${cormorantGaramond.className}`}>
                 Puntas Azules
                 <span className="block text-[#5197A6] mt-2">Tequila & Mezcal</span>
               </h1>
@@ -48,7 +48,7 @@ const AboutPage = () => {
           <div className="space-y-10">
             {/* Introduction */}
             <div className="text-center">
-              <p className="text-base md:text-lg text-gray-300 leading-relaxed">
+              <p className="text-base md:text-lg text-gray-700 leading-relaxed">
                 Born from generations of artisanal tradition, Puntas Azules represents the heart of Mexico's spirit culture. 
                 Our journey began in the rugged highlands of Jalisco and the wild, volcanic valleys of Durango, where the 
                 agave plant has long been respected as a sacred gift of the land.
@@ -62,7 +62,7 @@ const AboutPage = () => {
                 <h2 className={`text-xl md:text-2xl font-bold mb-4 ${cormorantGaramond.className}`}>
                   The Name
                 </h2>
-                <p className="text-gray-300 leading-relaxed">
+                <p className="text-gray-700 leading-relaxed">
                   The name "Puntas Azules" comes from the puntas—the first and most potent drops of distillation, 
                   rich in flavor and tradition—and the blue hues of the Blue Weber and wild agave fields under the 
                   Mexican sun. Every bottle reflects our commitment to craftsmanship, purity, and respect for the land.
@@ -76,7 +76,7 @@ const AboutPage = () => {
                 <h2 className={`text-xl md:text-2xl font-bold mb-4 ${cormorantGaramond.className}`}>
                   Our Process
                 </h2>
-                <p className="text-gray-300 leading-relaxed">
+                <p className="text-gray-700 leading-relaxed">
                   We produce our Tequila following strict NOM standards, using only fully matured Blue Weber agave, 
                   cooked in stone ovens and distilled in small batches to preserve its character. Our Mezcal Joven, 
                   handcrafted in Durango, honors ancestral techniques with wild agave roasted in earthen pits, 
@@ -108,13 +108,13 @@ const AboutPage = () => {
               ].map((value) => (
                 <div
                   key={value.title}
-                  className="bg-white/5 backdrop-blur-sm p-4 border border-white/10 hover:border-[#5197A6]/50 transition-colors rounded-lg"
+                  className="bg-black/5 backdrop-blur-sm p-4 border border-black/10 hover:border-[#5197A6]/50 transition-colors rounded-lg"
                 >
                   <value.icon className="h-6 w-6 text-[#5197A6] mb-3" />
                   <h3 className={`text-base font-bold mb-2 ${cormorantGaramond.className}`}>
                     {value.title}
                   </h3>
-                  <p className="text-gray-400 text-sm">
+                  <p className="text-gray-600 text-sm">
                     {value.description}
                   </p>
                 </div>
@@ -123,7 +123,7 @@ const AboutPage = () => {
 
             {/* Conclusion */}
             <div className="text-center">
-              <p className="text-base md:text-lg text-gray-300 leading-relaxed">
+              <p className="text-base md:text-lg text-gray-700 leading-relaxed">
                 Puntas Azules is more than a drink—it's a celebration of Mexico's heritage, intended to be savored 
                 and shared. We invite you to discover the bold elegance of our spirits—authentic, modern, and made with pride.
               </p>

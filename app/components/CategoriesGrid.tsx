@@ -32,7 +32,7 @@ const MakingOfSection = () => {
   ]
 
   return (
-    <section className="py-16 lg:py-24 bg-black">
+    <section className="py-16 lg:py-24 bg-white">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -42,10 +42,10 @@ const MakingOfSection = () => {
             <Clock className="mx-6 h-8 w-8 text-[#5197A6]" />
             <div className="w-16 h-px bg-[#5197A6]" />
           </div>
-          <h2 className={`text-3xl lg:text-4xl font-bold text-white mb-6 ${cormorantGaramond.className}`}>
+          <h2 className={`text-3xl lg:text-4xl font-bold text-black mb-6 ${cormorantGaramond.className}`}>
             The Art of Making
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
             Three distinct expressions, each crafted with time-honored techniques
           </p>
         </div>
@@ -67,7 +67,7 @@ const MakingOfSection = () => {
                       {type.agingTime}
                     </span>
                   </div>
-                  <h3 className={`text-4xl lg:text-5xl font-bold text-white mb-4 ${cormorantGaramond.className}`}>
+                  <h3 className={`text-4xl lg:text-5xl font-bold text-black mb-4 ${cormorantGaramond.className}`}>
                     {type.name}
                   </h3>
                 </div>
@@ -77,34 +77,34 @@ const MakingOfSection = () => {
                   
                   {/* Description */}
                   <div>
-                    <h4 className="text-white font-semibold text-lg mb-3 uppercase tracking-wide">
+                    <h4 className="text-black font-semibold text-lg mb-3 uppercase tracking-wide">
                       Description
                     </h4>
-                    <p className="text-gray-300 text-lg leading-relaxed">
+                    <p className="text-gray-700 text-lg leading-relaxed">
                       {type.description}
                     </p>
                   </div>
 
                   {/* Process */}
                   <div>
-                    <h4 className="text-white font-semibold text-lg mb-3 uppercase tracking-wide">
+                    <h4 className="text-black font-semibold text-lg mb-3 uppercase tracking-wide">
                       Process
                     </h4>
-                    <p className="text-gray-400 leading-relaxed">
+                    <p className="text-gray-600 leading-relaxed">
                       {type.process}
                     </p>
                   </div>
 
                   {/* Characteristics */}
                   <div>
-                    <h4 className="text-white font-semibold text-lg mb-3 uppercase tracking-wide">
+                    <h4 className="text-black font-semibold text-lg mb-3 uppercase tracking-wide">
                       Characteristics
                     </h4>
                     <div className="grid grid-cols-2 gap-3">
                       {type.characteristics.map((char, charIndex) => (
                         <div key={charIndex} className="flex items-center">
                           <div className="w-2 h-2 bg-[#5197A6] mr-3 flex-shrink-0" />
-                          <span className="text-gray-400">{char}</span>
+                          <span className="text-gray-600">{char}</span>
                         </div>
                       ))}
                     </div>
@@ -117,11 +117,11 @@ const MakingOfSection = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="text-center mt-20 lg:mt-24 pt-16 border-t border-white/10">
-          <h3 className={`text-2xl lg:text-3xl font-bold text-white mb-6 ${cormorantGaramond.className}`}>
+        <div className="text-center mt-20 lg:mt-24 pt-16 border-t border-black/10">
+          <h3 className={`text-2xl lg:text-3xl font-bold text-black mb-6 ${cormorantGaramond.className}`}>
             Generations of Expertise
           </h3>
-          <p className="text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed">
+          <p className="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">
             From highland agave fields to your glass, every step is carefully orchestrated 
             to deliver an exceptional tequila experience rooted in tradition.
           </p>

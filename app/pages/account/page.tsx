@@ -8,8 +8,8 @@ import { useCart } from '../../context/CartContext'
 const AccountPage = () => {
   const { items, removeFromCart, updateQuantity, total } = useCart()
 
-  return (
-    <main className="min-h-screen bg-black text-white py-20">
+      return (
+    <main className="min-h-screen bg-white text-black py-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
@@ -26,18 +26,18 @@ const AccountPage = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Sidebar */}
           <div className="lg:col-span-1">
-            <div className="bg-white/5 backdrop-blur-sm rounded-lg p-4 border border-white/10">
+            <div className="bg-black/5 backdrop-blur-sm rounded-lg p-4 border border-black/10">
               <div className="flex items-center space-x-4 mb-6">
                 <div className="h-12 w-12 rounded-full bg-[#5197A6]/20 flex items-center justify-center">
                   <User className="h-6 w-6 text-[#5197A6]" />
                 </div>
                 <div>
                   <h2 className={`text-lg font-bold ${cormorantGaramond.className}`}>John Doe</h2>
-                  <p className="text-gray-400 text-sm">john.doe@example.com</p>
+                  <p className="text-gray-600 text-sm">john.doe@example.com</p>
                 </div>
               </div>
 
-              <button className="w-full flex items-center space-x-3 px-4 py-2 text-red-400 hover:text-red-300 hover:bg-white/5 transition-colors rounded-lg">
+              <button className="w-full flex items-center space-x-3 px-4 py-2 text-red-600 hover:text-red-700 hover:bg-black/5 transition-colors rounded-lg">
                 <LogOut className="h-4 w-4" />
                 <span className="text-sm">Sign Out</span>
               </button>
@@ -46,8 +46,8 @@ const AccountPage = () => {
 
           {/* Main Content - Cart */}
           <div className="lg:col-span-2">
-            <div className="bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 overflow-hidden">
-              <div className="p-4 border-b border-white/10">
+            <div className="bg-black/5 backdrop-blur-sm rounded-lg border border-black/10 overflow-hidden">
+              <div className="p-4 border-b border-black/10">
                 <div className="flex items-center space-x-3">
                   <ShoppingCart className="h-5 w-5 text-[#5197A6]" />
                   <h2 className={`text-xl font-bold ${cormorantGaramond.className}`}>Shopping Cart</h2>
@@ -56,11 +56,11 @@ const AccountPage = () => {
 
               {items.length === 0 ? (
                 <div className="p-8 text-center">
-                  <p className="text-gray-400">Your cart is empty</p>
+                  <p className="text-gray-600">Your cart is empty</p>
                 </div>
               ) : (
                 <>
-                  <div className="divide-y divide-white/10">
+                  <div className="divide-y divide-black/10">
                     {items.map((item) => (
                       <div key={item.id} className="p-4 flex items-center space-x-4">
                         <div className="relative h-16 w-16 flex-shrink-0">
@@ -82,21 +82,21 @@ const AccountPage = () => {
                             <div className="flex items-center space-x-2">
                               <button
                                 onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                                className="text-gray-400 hover:text-[#5197A6] transition-colors text-lg"
+                                className="text-gray-600 hover:text-[#5197A6] transition-colors text-lg"
                               >
                                 -
                               </button>
-                              <span className="text-gray-300 text-sm">{item.quantity}</span>
+                              <span className="text-gray-700 text-sm">{item.quantity}</span>
                               <button
                                 onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                                className="text-gray-400 hover:text-[#5197A6] transition-colors text-lg"
+                                className="text-gray-600 hover:text-[#5197A6] transition-colors text-lg"
                               >
                                 +
                               </button>
                             </div>
                             <button
                               onClick={() => removeFromCart(item.id)}
-                              className="text-xs text-gray-400 hover:text-red-400 transition-colors"
+                              className="text-xs text-gray-600 hover:text-red-600 transition-colors"
                             >
                               Remove
                             </button>
@@ -111,12 +111,12 @@ const AccountPage = () => {
                     ))}
                   </div>
 
-                  <div className="p-4 bg-white/5">
+                  <div className="p-4 bg-black/5">
                     <div className="flex justify-between items-center mb-4">
                       <span>Total</span>
                       <span className="text-xl font-bold text-[#5197A6]">${total.toFixed(2)}</span>
                     </div>
-                    <button className="w-full bg-[#5197A6] text-black py-2 rounded-lg font-bold hover:bg-[#5197A6]/90 transition-colors">
+                    <button className="w-full bg-[#5197A6] text-white py-2 rounded-lg font-bold hover:bg-[#5197A6]/90 transition-colors">
                       Proceed to Checkout
                     </button>
                   </div>

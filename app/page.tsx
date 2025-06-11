@@ -7,15 +7,15 @@ import ContactSection from './components/ContactSection'
 
 // Dynamically import heavy components
 const HeroSection = dynamic(() => import('./components/HeroSection'), {
-  loading: () => <div className="h-screen bg-black" />
+  loading: () => <div className="h-screen bg-white" />
 })
 
 const FeaturedProducts = dynamic(() => import('./components/FeaturedProducts'), {
-  loading: () => <div className="h-[500px] bg-black" />
+  loading: () => <div className="h-[500px] bg-white" />
 })
 
 const MakingOfSection = dynamic(() => import('./components/CategoriesGrid'), {
-  loading: () => <div className="h-[400px] bg-black" />
+  loading: () => <div className="h-[400px] bg-white" />
 })
 
 // Loading component
@@ -27,7 +27,7 @@ const LoadingSpinner = () => (
 
 const FrontPage = () => {
   return (
-    <main className="min-h-screen bg-black text-white">
+    <main className="min-h-screen bg-white text-black">
       <ErrorBoundary>
         <Suspense fallback={<LoadingSpinner />}>
           <HeroSection />

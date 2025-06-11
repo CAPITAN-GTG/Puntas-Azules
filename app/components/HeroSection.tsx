@@ -42,7 +42,7 @@ const HeroSection = () => {
       <div className="relative h-screen overflow-hidden">
         {/* Video Background */}
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-black opacity-50" />
+          <div className="absolute inset-0 bg-black opacity-60" />
           <video
             ref={videoRef}
             className="w-full h-full object-cover"
@@ -68,14 +68,14 @@ const HeroSection = () => {
           <div className="absolute top-4 right-4 z-20 flex gap-2">
             <button
               onClick={togglePlayPause}
-              className="bg-white/20 hover:bg-white/30 text-black p-2 backdrop-blur-sm transition-all duration-300 border border-black/20"
+              className="bg-white/80 hover:bg-white/90 text-black p-2 backdrop-blur-sm transition-all duration-300 border border-black/20"
               aria-label={isPlaying ? 'Pause video' : 'Play video'}
             >
               {isPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
             </button>
             <button
               onClick={toggleMute}
-              className="bg-white/20 hover:bg-white/30 text-black p-2 backdrop-blur-sm transition-all duration-300 border border-black/20"
+              className="bg-white/80 hover:bg-white/90 text-black p-2 backdrop-blur-sm transition-all duration-300 border border-black/20"
               aria-label={isMuted ? 'Unmute video' : 'Mute video'}
             >
               <span className="text-xs font-bold">{isMuted ? 'M' : 'U'}</span>
@@ -107,7 +107,7 @@ const HeroSection = () => {
             
             {/* Shop Button */}
             <Link href="/pages/tequilas">
-              <button className="bg-black text-white px-12 py-4 text-xl font-bold hover:bg-gray-900 transition-all duration-300 border-2 border-black hover:border-[#5197A6]">
+              <button className="bg-white text-black px-12 py-4 text-xl font-bold hover:bg-gray-100 transition-all duration-300 border-2 border-white hover:border-[#5197A6]">
                 SHOP NOW
               </button>
             </Link>

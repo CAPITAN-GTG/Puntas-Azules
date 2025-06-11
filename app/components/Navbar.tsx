@@ -13,7 +13,7 @@ const Navbar = () => {
   const itemCount = items.reduce((sum, item) => sum + item.quantity, 0)
   
   return (
-    <nav className="bg-black/90 backdrop-blur-md fixed w-full z-50 border-b border-white/10">
+    <nav className="bg-black backdrop-blur-md fixed w-full z-50 border-b border-black/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo and Brand */}
@@ -35,14 +35,14 @@ const Navbar = () => {
           <div className="hidden md:flex items-center space-x-8">
             <Link
               href="/pages/tequilas"
-              className="text-white/80 hover:text-[#5197A6] transition-colors flex items-center space-x-2 group"
+              className="text-white hover:text-[#5197A6] transition-colors flex items-center space-x-2 group"
             >
               <Wine className="h-5 w-5 group-hover:text-[#5197A6] transition-colors" />
               <span className="text-sm tracking-wider">TEQUILAS</span>
             </Link>
             <Link
               href="/pages/about"
-              className="text-white/80 hover:text-[#5197A6] transition-colors flex items-center space-x-2 group"
+              className="text-white hover:text-[#5197A6] transition-colors flex items-center space-x-2 group"
             >
               <Info className="h-5 w-5 group-hover:text-[#5197A6] transition-colors" />
               <span className="text-sm tracking-wider">ABOUT</span>
@@ -55,11 +55,11 @@ const Navbar = () => {
             {/* Cart */}
             <Link
               href="/pages/account"
-              className="relative text-white/80 hover:text-[#5197A6] transition-colors"
+              className="relative text-white hover:text-[#5197A6] transition-colors"
             >
               <ShoppingCart className="h-5 w-5" />
               {itemCount > 0 && (
-                <span className="absolute -top-2 -right-2 bg-[#5197A6] text-black text-[10px] font-bold h-4 w-4 rounded-full flex items-center justify-center">
+                <span className="absolute -top-2 -right-2 bg-[#5197A6] text-white text-[10px] font-bold h-4 w-4 rounded-full flex items-center justify-center">
                   {itemCount}
                 </span>
               )}
@@ -71,7 +71,7 @@ const Navbar = () => {
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                 className="flex items-center space-x-3 group"
               >
-                <div className="relative h-10 w-10 rounded-full overflow-hidden border-2 border-white/20 group-hover:border-[#5197A6]/50 transition-colors">
+                <div className="relative h-10 w-10 rounded-full overflow-hidden border-2 border-black/20 group-hover:border-[#5197A6]/50 transition-colors">
                   <Image
                     src="/whiskey-1.jpeg"
                     alt="Profile"
@@ -83,7 +83,7 @@ const Navbar = () => {
                   />
                 </div>
                 <ChevronDown 
-                  className={`h-4 w-4 text-white/80 group-hover:text-[#5197A6] transition-all duration-200 ${
+                  className={`h-4 w-4 text-white group-hover:text-[#5197A6] transition-all duration-200 ${
                     isDropdownOpen ? 'rotate-180' : ''
                   }`} 
                 />
@@ -91,20 +91,20 @@ const Navbar = () => {
 
               {/* Dropdown Menu */}
               {isDropdownOpen && (
-                <div className="absolute right-0 mt-2 w-56 bg-black/95 backdrop-blur-md border border-white/10 rounded-none py-2 z-50 animate-fadeIn">
-                  <div className="px-4 py-2 border-b border-white/10">
-                    <p className="text-white font-medium">John Doe</p>
-                    <p className="text-white/60 text-sm">john@example.com</p>
+                <div className="absolute right-0 mt-2 w-56 bg-white/95 backdrop-blur-md border border-black/10 rounded-none py-2 z-50 animate-fadeIn shadow-lg">
+                  <div className="px-4 py-2 border-b border-black/10">
+                    <p className="text-black font-medium">John Doe</p>
+                    <p className="text-black/60 text-sm">john@example.com</p>
                   </div>
                   <Link
                     href="/pages/account"
-                    className="flex items-center px-4 py-3 text-white/80 hover:text-[#5197A6] hover:bg-white/5 transition-colors"
+                    className="flex items-center px-4 py-3 text-black/90 hover:text-[#5197A6] hover:bg-black/5 transition-colors"
                   >
                     <User className="h-4 w-4 mr-3" />
                     Account Settings
                   </Link>
                   <button
-                    className="flex items-center w-full px-4 py-3 text-white/80 hover:text-[#5197A6] hover:bg-white/5 transition-colors"
+                    className="flex items-center w-full px-4 py-3 text-black/80 hover:text-[#5197A6] hover:bg-black/5 transition-colors"
                     onClick={() => {/* Add logout logic */}}
                   >
                     <LogOut className="h-4 w-4 mr-3" />
@@ -117,7 +117,7 @@ const Navbar = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden text-white/80 hover:text-[#5197A6] transition-colors"
+              className="md:hidden text-white hover:text-[#5197A6] transition-colors"
             >
               {isMobileMenuOpen ? (
                 <X className="h-6 w-6" />
@@ -130,18 +130,18 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-white/10 animate-fadeIn">
+          <div className="md:hidden py-4 border-t border-black/10 animate-fadeIn">
             <div className="flex flex-col space-y-4">
               <Link
                 href="/pages/tequilas"
-                className="text-white/80 hover:text-[#5197A6] transition-colors flex items-center space-x-2 px-4"
+                className="text-white hover:text-[#5197A6] transition-colors flex items-center space-x-2 px-4"
               >
                 <Wine className="h-5 w-5" />
                 <span>TEQUILAS</span>
               </Link>
               <Link
                 href="/pages/about"
-                className="text-white/80 hover:text-[#5197A6] transition-colors flex items-center space-x-2 px-4"
+                className="text-white hover:text-[#5197A6] transition-colors flex items-center space-x-2 px-4"
               >
                 <Info className="h-5 w-5" />
                 <span>ABOUT</span>
