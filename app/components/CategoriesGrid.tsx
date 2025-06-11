@@ -1,55 +1,135 @@
 'use client'
 import React from 'react'
-import Image from 'next/image'
-import { Sparkles, ArrowRight } from 'lucide-react'
-import Link from 'next/link'
+import { Clock, Droplets, TreePine, Award } from 'lucide-react'
 import { cormorantGaramond } from '../fonts'
 
-const CategoriesGrid = () => {
-  const categories = [
-    { name: 'Blanco', image: '/whiskey-blanco.jpeg', count: 'Crystal Clear', description: 'Pure and unaged, capturing the true essence of blue agave with crisp, clean flavors.' },
-    { name: 'Reposado', image: '/whiskey-reposado.jpeg', count: 'Golden Smooth', description: 'Aged 2-12 months in oak barrels, achieving perfect balance between agave and wood.' },
-    { name: 'Añejo', image: '/whiskey-anejo.jpeg', count: 'Rich & Complex', description: 'Aged over a year in oak barrels, developing deep complexity and amber richness.' }
+const MakingOfSection = () => {
+  const tequilaTypes = [
+    {
+      name: 'Blanco',
+      agingTime: 'Unaged',
+      icon: Droplets,
+      description: 'Pure and unaged, capturing the true essence of blue agave. Bottled immediately after distillation to preserve maximum agave character.',
+      process: 'Double distilled in copper pot stills, filtered and bottled within 60 days.',
+      characteristics: ['Crystal clear', 'Pure agave flavor', 'Crisp finish', 'Citrus notes']
+    },
+    {
+      name: 'Reposado',
+      agingTime: '2-12 Months',
+      icon: TreePine,
+      description: 'Aged in charred American oak barrels, achieving perfect balance between agave and wood flavors.',
+      process: 'Rested in seasoned oak barrels, allowing controlled oxidation and flavor development.',
+      characteristics: ['Golden color', 'Balanced flavor', 'Smooth texture', 'Vanilla notes']
+    },
+    {
+      name: 'Añejo',
+      agingTime: '1-3 Years',
+      icon: Award,
+      description: 'Extended aging creates sophisticated complexity and depth, representing the pinnacle of tequila craftsmanship.',
+      process: 'Matured in premium oak barrels with careful monitoring for optimal flavor integration.',
+      characteristics: ['Rich amber', 'Complex layers', 'Silky texture', 'Dark chocolate notes']
+    }
   ]
 
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {categories.map((category, index) => (
-          <Link href="/pages/tequilas" key={category.name}>
-            <div className="group relative h-[300px] overflow-hidden cursor-pointer rounded-lg">
-              <Image
-                src={category.image}
-                alt={category.name}
-                fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                className="object-contain transition-transform duration-500 group-hover:scale-105"
-                quality={50}
-                loading="lazy"
-                placeholder="blur"
-                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkbHB0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-4">
-                <div className="flex items-center mb-2">
-                  <Sparkles className="h-4 w-4 text-[#5197A6] mr-2" />
-                  <h3 className={`text-xl font-bold ${cormorantGaramond.className}`}>
-                    {category.name}
+    <section className="py-16 lg:py-24 bg-black">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Section Header */}
+        <div className="text-center mb-16 lg:mb-20">
+          <div className="flex items-center justify-center mb-8">
+            <div className="w-16 h-px bg-[#5197A6]" />
+            <Clock className="mx-6 h-8 w-8 text-[#5197A6]" />
+            <div className="w-16 h-px bg-[#5197A6]" />
+          </div>
+          <h2 className={`text-3xl lg:text-4xl font-bold text-white mb-6 ${cormorantGaramond.className}`}>
+            The Art of Making
+          </h2>
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+            Three distinct expressions, each crafted with time-honored techniques
+          </p>
+        </div>
+
+        {/* Tequila Types */}
+        <div className="space-y-12 lg:space-y-16">
+          {tequilaTypes.map((type, index) => (
+            <div 
+              key={type.name}
+              className="border-l-4 border-[#5197A6] pl-6 lg:pl-12"
+            >
+              <div className="grid lg:grid-cols-3 gap-6 lg:gap-12">
+                
+                {/* Title Section */}
+                <div className="lg:col-span-1">
+                  <div className="flex items-center mb-4">
+                    <type.icon className="h-6 w-6 text-[#5197A6] mr-3" />
+                    <span className="text-[#5197A6] text-sm font-medium uppercase tracking-wider">
+                      {type.agingTime}
+                    </span>
+                  </div>
+                  <h3 className={`text-4xl lg:text-5xl font-bold text-white mb-4 ${cormorantGaramond.className}`}>
+                    {type.name}
                   </h3>
                 </div>
-                <p className="text-[#5197A6] text-base mb-2">{category.count}</p>
-                <p className="text-gray-300 text-sm mb-3 line-clamp-2">{category.description}</p>
-                <div className="flex items-center text-white group-hover:text-[#5197A6] transition-colors">
-                  <span className="text-sm font-medium">View Collection</span>
-                  <ArrowRight className="ml-2 h-3 w-3 transform group-hover:translate-x-1 transition-transform" />
+
+                {/* Content Section */}
+                <div className="lg:col-span-2 space-y-6">
+                  
+                  {/* Description */}
+                  <div>
+                    <h4 className="text-white font-semibold text-lg mb-3 uppercase tracking-wide">
+                      Description
+                    </h4>
+                    <p className="text-gray-300 text-lg leading-relaxed">
+                      {type.description}
+                    </p>
+                  </div>
+
+                  {/* Process */}
+                  <div>
+                    <h4 className="text-white font-semibold text-lg mb-3 uppercase tracking-wide">
+                      Process
+                    </h4>
+                    <p className="text-gray-400 leading-relaxed">
+                      {type.process}
+                    </p>
+                  </div>
+
+                  {/* Characteristics */}
+                  <div>
+                    <h4 className="text-white font-semibold text-lg mb-3 uppercase tracking-wide">
+                      Characteristics
+                    </h4>
+                    <div className="grid grid-cols-2 gap-3">
+                      {type.characteristics.map((char, charIndex) => (
+                        <div key={charIndex} className="flex items-center">
+                          <div className="w-2 h-2 bg-[#5197A6] mr-3 flex-shrink-0" />
+                          <span className="text-gray-400">{char}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
                 </div>
               </div>
             </div>
-          </Link>
-        ))}
+          ))}
+        </div>
+
+        {/* Bottom Section */}
+        <div className="text-center mt-20 lg:mt-24 pt-16 border-t border-white/10">
+          <h3 className={`text-2xl lg:text-3xl font-bold text-white mb-6 ${cormorantGaramond.className}`}>
+            Generations of Expertise
+          </h3>
+          <p className="text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed">
+            From highland agave fields to your glass, every step is carefully orchestrated 
+            to deliver an exceptional tequila experience rooted in tradition.
+          </p>
+        </div>
+
       </div>
-    </div>
+    </section>
   )
 }
 
-export default CategoriesGrid 
+export default MakingOfSection 

@@ -14,7 +14,7 @@ const FeaturedProducts = dynamic(() => import('./components/FeaturedProducts'), 
   loading: () => <div className="h-[500px] bg-black" />
 })
 
-const CategoriesGrid = dynamic(() => import('./components/CategoriesGrid'), {
+const MakingOfSection = dynamic(() => import('./components/CategoriesGrid'), {
   loading: () => <div className="h-[400px] bg-black" />
 })
 
@@ -42,7 +42,7 @@ const FrontPage = () => {
 
       <ErrorBoundary>
         <Suspense fallback={<LoadingSpinner />}>
-          <CategoriesGrid />
+          <MakingOfSection />
         </Suspense>
       </ErrorBoundary>
 
