@@ -1,8 +1,8 @@
 "use client"
-import React, { useState } from 'react'
+import React from 'react'
 import Image from 'next/image'
-import { motion, AnimatePresence } from 'framer-motion'
-import { X, ShoppingCart, Star, Award, Leaf, ZoomIn } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { ShoppingCart, MapPin, Leaf, Droplets, Award, Package, Scale, Box, Hash, Truck, Shield, Star } from 'lucide-react'
 import { cormorantGaramond } from '../../fonts'
 import { useCart } from '../../context/CartContext'
 import { toast } from 'react-toastify'
@@ -12,31 +12,66 @@ const products = [
   {
     id: 1,
     name: "Puntas Azules Blanco",
-    description: "Our signature Blanco tequila, crafted from 100% Blue Weber agave. Clean, crisp, and perfect for any occasion.",
-    image: "/product-blanco.jpeg",
-    price: 49.99,
-    features: ["100% Blue Weber Agave", "Double Distilled", "Unaged"]
+    image: "/whiskey-blanco-2.jpeg",
+    price: 39.99,
+    category: "Tequila Blanco 100% Agave",
+    origin: "Tequila, Jalisco/Guadalajara, Jalisco",
+    variety: "Agave Tequila Weber Blue Variety.",
+    nom: "1431",
+    distillation: "Still. Double Distilled.",
+    flavor: "As a good Tequila should have, Agave cooked, Raw agave, Fruity, Strawberry, Tropical Fruits, Herbal, Caramel.",
+    alcohol: "35%",
+    specs: {
+      ability: "750ML",
+      dimensions: "7.00 X 7.00 X 35.00",
+      weight: "1.30KM",
+      boxCount: "12",
+      upc: "7 503028 677207"
+    }
   },
   {
     id: 2,
     name: "Puntas Azules Reposado",
-    description: "Aged for 6 months in American oak barrels, our Reposado offers a perfect balance of agave and oak flavors.",
-    image: "/product-reposado.jpeg",
-    price: 59.99,
-    features: ["6 Months Aged", "American Oak", "Smooth Finish"]
+    image: "/whiskey-reposado-2.jpeg",
+    price: 44.99,
+    category: "Tequila Reposado 100% Agave",
+    origin: "Tequila, Jalisco/Guadalajara, Jalisco",
+    variety: "Agave Tequila Weber Blue Variety.",
+    nom: "1431",
+    distillation: "Still. Double Distilled.",
+    flavor: "As a good Tequila should have, Agave cooked, Raw agave, Fruity, Strawberry, Tropical Fruits, Herbal, Caramel.",
+    alcohol: "35%",
+    specs: {
+      ability: "750ML",
+      dimensions: "7.00 X 7.00 X 35.00",
+      weight: "1.30KM",
+      boxCount: "12",
+      upc: "7 503028 677207"
+    }
   },
   {
     id: 3,
     name: "Puntas Azules Añejo",
-    description: "Our premium Añejo, aged for 18 months in French oak barrels, delivering complex flavors and smooth finish.",
-    image: "/product-anejo.jpeg",
-    price: 79.99,
-    features: ["18 Months Aged", "French Oak", "Premium Quality"]
+    image: "/whiskey-anejo-2.jpeg",
+    price: 49.99,
+    category: "Tequila Anejo 100% Agave",
+    origin: "Tequila, Jalisco/Guadalajara, Jalisco",
+    variety: "Agave Tequila Weber Blue Variety.",
+    nom: "1431",
+    distillation: "Still. Double Distilled.",
+    flavor: "As a good Tequila should have, Agave cooked, Raw agave, Fruity, Strawberry, Tropical Fruits, Herbal, Caramel.",
+    alcohol: "35%",
+    specs: {
+      ability: "750ML",
+      dimensions: "7.00 X 7.00 X 35.00",
+      weight: "1.30KM",
+      boxCount: "12",
+      upc: "7 503028 677207"
+    }
   }
 ]
 
 const ProductPage = () => {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null)
   const { addToCart } = useCart()
 
   const handleAddToCart = (e: React.MouseEvent, product: typeof products[0]) => {
@@ -66,133 +101,145 @@ const ProductPage = () => {
     })
   }
 
-      return (
-    <main className="min-h-screen bg-white text-black py-20">
+  return (
+    <main className="min-h-screen bg-white text-black py-8 md:py-16">
       {/* Header */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 md:mb-12">
         <div className="text-center">
-          <div className="flex items-center justify-center mb-6">
+          <div className="flex items-center justify-center mb-4 md:mb-6">
             <div className="h-px w-12 bg-[#5197A6] mr-4" />
-            <span className="text-[#5197A6] font-light tracking-widest">OUR TEQUILAS</span>
+            <span className="text-[#5197A6] font-light tracking-widest font-['Work_Sans']">OUR TEQUILAS</span>
             <div className="h-px w-12 bg-[#5197A6] ml-4" />
           </div>
-          <h1 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-6 ${cormorantGaramond.className}`}>
+          <h1 className="text-2xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 font-['Cinzel_Decorative']">
             Premium Selection
           </h1>
-          <p className="text-base text-gray-700 max-w-2xl mx-auto">
-            Discover our carefully crafted tequilas, each telling its own story of tradition and excellence.
-          </p>
         </div>
       </div>
 
-      {/* Products Grid */}
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* Products List */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="space-y-12 md:space-y-20">
           {products.map((product, index) => (
-            <div
-              key={product.id}
-              className="group bg-black/5 backdrop-blur-sm border border-black/10 hover:border-[#5197A6]/50 transition-colors rounded-lg overflow-hidden"
-            >
-              {/* Image Section */}
-              <div className="relative aspect-[3/4]">
-                <div className="absolute inset-0">
-                  <Image
-                    src={product.image}
-                    alt={product.name}
-                    fill
-                    className="object-contain p-4"
-                    quality={50}
-                    loading="lazy"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    placeholder="blur"
-                    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkbHB0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk"
-                  />
+            <div key={product.id} className="relative bg-white border border-gray-100 shadow-sm">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12 items-start">
+                {/* Image Section */}
+                <div className="relative aspect-[4/5] md:aspect-[3/4] bg-gray-50">
+                  <div className="absolute inset-0">
+                    <Image
+                      src={product.image}
+                      alt={`${product.name} - ${product.category}`}
+                      fill
+                      className="object-contain"
+                      quality={90}
+                      loading="lazy"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
                 </div>
-                {/* Zoom Button */}
-                <button
-                  onClick={() => setSelectedImage(product.image)}
-                  className="absolute top-4 right-4 bg-white/50 p-2 text-black hover:text-[#5197A6] transition-colors rounded"
-                >
-                  <ZoomIn className="h-4 w-4" />
-                </button>
-              </div>
 
-              {/* Content Section */}
-              <div className="p-4">
-                <div className="flex items-start justify-between mb-3">
+                {/* Content Section */}
+                <div className="space-y-6 p-4 md:p-6">
                   <div>
-                    <h2 className={`text-lg font-bold mb-2 ${cormorantGaramond.className}`}>
+                    <h2 className="text-2xl md:text-4xl font-bold mb-2 md:mb-3 font-['Yeseva_One']">
                       {product.name}
                     </h2>
-                    <p className="text-gray-700 text-sm line-clamp-2">
-                      {product.description}
-                    </p>
+                    <p className="text-[#5197A6] text-base md:text-xl font-['Playfair_Display']">{product.category}</p>
                   </div>
-                  <span className="text-[#5197A6] font-bold text-lg">
-                    ${product.price.toFixed(2)}
-                  </span>
-                </div>
 
-                <div className="space-y-2 mb-4">
-                  {product.features.map((feature, i) => (
-                    <div key={i} className="flex items-center text-sm text-gray-700">
-                      <Star className="h-3 w-3 text-[#5197A6] mr-2" />
-                      {feature}
+                  <div className="space-y-6 font-['Work_Sans']">
+                    {/* Production Details */}
+                    <div className="space-y-4">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                          <h4 className="font-bold text-gray-800 mb-1">Origin:</h4>
+                          <p className="text-gray-700">{product.origin}</p>
+                        </div>
+                        <div>
+                          <h4 className="font-bold text-gray-800 mb-1">Category:</h4>
+                          <p className="text-gray-700">{product.category}</p>
+                        </div>
+                        <div>
+                          <h4 className="font-bold text-gray-800 mb-1">Variety:</h4>
+                          <p className="text-gray-700">{product.variety}</p>
+                        </div>
+                        <div>
+                          <h4 className="font-bold text-gray-800 mb-1">Nom:</h4>
+                          <p className="text-gray-700">{product.nom}</p>
+                        </div>
+                        <div>
+                          <h4 className="font-bold text-gray-800 mb-1">Distillation:</h4>
+                          <p className="text-gray-700">{product.distillation}</p>
+                        </div>
+                      </div>
                     </div>
-                  ))}
-                </div>
 
-                <motion.button 
-                  onClick={(e) => handleAddToCart(e, product)}
-                  whileTap={{ scale: 0.95 }}
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                  className="w-full bg-[#5197A6] text-white py-2 font-bold hover:bg-[#5197A6]/90 transition-colors flex items-center justify-center space-x-2 rounded"
-                >
-                  <ShoppingCart className="h-4 w-4" />
-                  <span>Add to Cart</span>
-                </motion.button>
+                    <div className="h-px bg-gray-200" />
+
+                    {/* Flavor Profile */}
+                    <div className="space-y-4">
+                      <h3 className="text-base md:text-lg font-semibold text-gray-800 font-['Playfair_Display']">Flavor Profile</h3>
+                      <p className="text-gray-700 leading-relaxed">{product.flavor}</p>
+                      <div>
+                        <h4 className="font-bold text-gray-800 mb-1">ALC.VOL:</h4>
+                        <p className="text-gray-700">{product.alcohol}</p>
+                      </div>
+                    </div>
+
+                    <div className="h-px bg-gray-200" />
+
+                    {/* Technical Specifications */}
+                    <div className="bg-gray-200 p-4 md:p-6">
+                      <h3 className="text-base md:text-lg font-semibold text-gray-800 mb-4 font-['Playfair_Display']">SPECS</h3>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div className="space-y-3">
+                          <div>
+                            <p className="text-gray-700"><span className="font-bold text-gray-800">ABILITY</span><br/>{product.specs.ability}</p>
+                          </div>
+                          <div>
+                            <p className="text-gray-700"><span className="font-bold text-gray-800">L X A X H CM</span><br/>{product.specs.dimensions}</p>
+                          </div>
+                          <div>
+                            <p className="text-gray-700"><span className="font-bold text-gray-800">WEIGHT</span><br/>{product.specs.weight}</p>
+                          </div>
+                        </div>
+                        <div className="space-y-3">
+                          <div>
+                            <p className="text-gray-700"><span className="font-bold text-gray-800">B X C</span><br/>{product.specs.boxCount}</p>
+                          </div>
+                          <div>
+                            <p className="text-gray-700"><span className="font-bold text-gray-800">UPC</span><br/>{product.specs.upc}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Price and Add to Cart */}
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-4 border-t border-gray-200">
+                      <div className="flex flex-col">
+                        <span className="text-2xl md:text-3xl font-bold text-[#5197A6] font-['Playfair_Display']">
+                          ${product.price.toFixed(2)}
+                        </span>
+                        <span className="text-sm text-gray-600">Ships in 2-3 business days</span>
+                      </div>
+                      <motion.button 
+                        onClick={(e) => handleAddToCart(e, product)}
+                        whileTap={{ scale: 0.95 }}
+                        whileHover={{ scale: 1.02 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                        className="w-full sm:w-auto bg-gray-900 text-white px-6 md:px-8 py-2 md:py-3 font-bold hover:bg-gray-800 transition-colors flex items-center justify-center space-x-2 shadow-lg"
+                      >
+                        <ShoppingCart className="h-5 w-5" />
+                        <span>Add to Cart</span>
+                      </motion.button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           ))}
         </div>
       </div>
-
-      {/* Image Modal */}
-      <AnimatePresence>
-        {selectedImage && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-white/95 z-50 flex items-center justify-center p-4 md:p-8"
-            onClick={() => setSelectedImage(null)}
-          >
-            <div
-              className="relative w-full h-full max-w-[70vw] max-h-[80vh]"
-              onClick={e => e.stopPropagation()}
-            >
-              <div className="relative w-full h-full">
-                <Image
-                  src={selectedImage}
-                  alt="Product Preview"
-                  fill
-                  className="object-contain"
-                  quality={70}
-                  sizes="(max-width: 768px) 70vw, 60vw"
-                  priority
-                />
-              </div>
-              <button
-                className="absolute top-4 right-4 text-black hover:text-[#5197A6] transition-colors bg-white/50 rounded-full p-2"
-                onClick={() => setSelectedImage(null)}
-              >
-                <X className="h-6 w-6" />
-              </button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </main>
   )
 }
