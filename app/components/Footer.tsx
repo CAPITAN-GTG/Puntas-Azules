@@ -63,8 +63,8 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/pages/account" className="text-gray-600 hover:text-[#5197A6] transition-colors text-sm">
-                  Account
+                <Link href="/pages/cart" className="text-gray-600 hover:text-[#5197A6] transition-colors text-sm">
+                  Cart
                 </Link>
               </li>
             </ul>
@@ -86,38 +86,45 @@ const Footer = () => {
           {/* Contact */}
           <div>
             <h3 className={`text-black text-base font-bold mb-4 ${cormorantGaramond.className}`}>
-              Contact
+              Contact Us
             </h3>
             <ul className="space-y-2">
-              <li className="flex items-center text-gray-600 text-sm">
-                <Mail className="h-3 w-3 mr-2 text-[#5197A6]" />
-                info@puntasazules.com
+              <li>
+                <a 
+                  href="mailto:info@senicinternational.com" 
+                  className="text-gray-600 hover:text-[#5197A6] transition-colors text-sm flex items-center"
+                >
+                  <Mail className="h-4 w-4 mr-2" />
+                  info@senicinternational.com
+                </a>
               </li>
-              <li className="flex items-center text-gray-600 text-sm">
-                <Phone className="h-3 w-3 mr-2 text-[#5197A6]" />
-                +1 (555) 123-4567
+              <li>
+                <a 
+                  href="tel:+19093215600" 
+                  className="text-gray-600 hover:text-[#5197A6] transition-colors text-sm flex items-center"
+                >
+                  <Phone className="h-4 w-4 mr-2" />
+                  +1 (909) 321-5600
+                </a>
               </li>
-              <li className="flex items-center text-gray-600 text-sm">
-                <MapPin className="h-3 w-3 mr-2 text-[#5197A6]" />
-                Jalisco, Mexico
+              <li>
+                <a 
+                  href="https://maps.google.com/?q=1670+Hammer+Ave+Ste+3+norco+CA+92860" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-gray-600 hover:text-[#5197A6] transition-colors text-sm flex items-center"
+                >
+                  <MapPin className="h-4 w-4 mr-2" />
+                  1670 Hammer Ave Ste 3<br/>Norco, CA 92860
+                </a>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Bottom Section */}
-        <div className="border-t border-black/10 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-600 text-sm">
-            © 2024 Puntas Azules. All rights reserved.
-          </p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="text-gray-600 hover:text-[#5197A6] transition-colors text-sm">
-              Privacy Policy
-            </a>
-            <a href="#" className="text-gray-600 hover:text-[#5197A6] transition-colors text-sm">
-              Terms of Service
-            </a>
-          </div>
+        {/* Bottom Bar */}
+        <div className="mt-12 pt-8 border-t border-black/10 text-center text-sm text-gray-600">
+          <p>© {new Date().getFullYear()} Puntas Azules. All rights reserved.</p>
         </div>
       </div>
     </footer>

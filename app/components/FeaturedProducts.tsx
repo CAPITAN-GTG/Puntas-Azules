@@ -74,12 +74,9 @@ const FeaturedProducts = () => {
   }
 
   const featuredProducts = [
-    { id: 1, name: 'Premium Tequila Reposado', image: '/whiskey-reposado-2.jpeg', price: '$89.99' },
-    { id: 2, name: 'Artisan Tequila Blanco', image: '/whiskey-blanco-2.jpeg', price: '$129.99' },
-    { id: 3, name: 'Aged Tequila Añejo', image: '/whiskey-anejo-2.jpeg', price: '$69.99' },
-    { id: 4, name: 'Limited Edition Tequila', image: '/whiskey-2.jpeg', price: '$149.99' },
-    { id: 5, name: 'Reserve Tequila Blanco', image: '/whiskey-blanco.jpeg', price: '$159.99' },
-    { id: 6, name: 'Master Tequila Reposado', image: '/whiskey-reposado.jpeg', price: '$199.99' },
+    { id: 1, name: 'Puntas Azules Blanco', image: '/whiskey-blanco.jpeg', price: '$39.99' },
+    { id: 2, name: 'Puntas Azules Reposado', image: '/whiskey-reposado.jpeg', price: '$44.99' },
+    { id: 3, name: 'Puntas Azules Añejo', image: '/whiskey-anejo.jpeg', price: '$49.99' }
   ]
 
   return (
