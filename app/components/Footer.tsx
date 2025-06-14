@@ -15,7 +15,7 @@ const Footer = () => {
               <div className="relative h-12 w-32 mb-4">
                <Link href="/" className="block">
                 <Image
-                  src="/logo.png"
+                  src="/logo.PNG"
                   alt="Puntas Azules Logo"
                   fill
                   className="object-contain hover:scale-110 hover:rotate-360 transition-all duration-600"
