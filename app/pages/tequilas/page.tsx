@@ -20,14 +20,7 @@ const products = [
     nom: "1431",
     distillation: "Still. Double Distilled.",
     flavor: "As a good Tequila should have, Agave cooked, Raw agave, Fruity, Strawberry, Tropical Fruits, Herbal, Caramel.",
-    alcohol: "35%",
-    specs: {
-      ability: "750ML",
-      dimensions: "7.00 X 7.00 X 35.00",
-      weight: "1.30KM",
-      boxCount: "12",
-      upc: "7 503028 677207"
-    }
+    alcohol: "40%",
   },
   {
     id: 2,
@@ -40,7 +33,7 @@ const products = [
     nom: "1431",
     distillation: "Still. Double Distilled.",
     flavor: "As a good Tequila should have, Agave cooked, Raw agave, Fruity, Strawberry, Tropical Fruits, Herbal, Caramel.",
-    alcohol: "35%",
+    alcohol: "40%",
     specs: {
       ability: "750ML",
       dimensions: "7.00 X 7.00 X 35.00",
@@ -60,7 +53,7 @@ const products = [
     nom: "1431",
     distillation: "Still. Double Distilled.",
     flavor: "As a good Tequila should have, Agave cooked, Raw agave, Fruity, Strawberry, Tropical Fruits, Herbal, Caramel.",
-    alcohol: "35%",
+    alcohol: "40%",
     specs: {
       ability: "750ML",
       dimensions: "7.00 X 7.00 X 35.00",
@@ -183,34 +176,6 @@ const ProductPage = () => {
                       <div>
                         <h4 className="font-bold text-gray-800 mb-1">ALC.VOL:</h4>
                         <p className="text-gray-700">{product.alcohol}</p>
-                      </div>
-                    </div>
-
-                    <div className="h-px bg-gray-200" />
-
-                    {/* Technical Specifications */}
-                    <div className="bg-gray-200 p-4 md:p-6">
-                      <h3 className="text-base md:text-lg font-semibold text-gray-800 mb-4 font-['Playfair_Display']">SPECS</h3>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div className="space-y-3">
-                          <div>
-                            <p className="text-gray-700"><span className="font-bold text-gray-800">ABILITY</span><br/>{product.specs.ability}</p>
-                          </div>
-                          <div>
-                            <p className="text-gray-700"><span className="font-bold text-gray-800">L X A X H CM</span><br/>{product.specs.dimensions}</p>
-                          </div>
-                          <div>
-                            <p className="text-gray-700"><span className="font-bold text-gray-800">WEIGHT</span><br/>{product.specs.weight}</p>
-                          </div>
-                        </div>
-                        <div className="space-y-3">
-                          <div>
-                            <p className="text-gray-700"><span className="font-bold text-gray-800">B X C</span><br/>{product.specs.boxCount}</p>
-                          </div>
-                          <div>
-                            <p className="text-gray-700"><span className="font-bold text-gray-800">UPC</span><br/>{product.specs.upc}</p>
-                          </div>
-                        </div>
                       </div>
                     </div>
 

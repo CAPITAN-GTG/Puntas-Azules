@@ -74,9 +74,9 @@ const FeaturedProducts = () => {
   }
 
   const featuredProducts = [
-    { id: 1, name: 'Puntas Azules Blanco', image: '/whiskey-blanco.jpeg', price: '$39.99' },
-    { id: 2, name: 'Puntas Azules Reposado', image: '/whiskey-reposado.jpeg', price: '$44.99' },
-    { id: 3, name: 'Puntas Azules Añejo', image: '/whiskey-anejo.jpeg', price: '$49.99' }
+    { id: 1, name: 'Puntas Azules Blanco', image: '/whiskey-blanco-2.jpeg', price: '$39.99' },
+    { id: 2, name: 'Puntas Azules Reposado', image: '/whiskey-reposado-2.jpeg', price: '$44.99' },
+    { id: 3, name: 'Puntas Azules Añejo', image: '/whiskey-anejo-2.jpeg', price: '$49.99' }
   ]
 
   return (
@@ -98,13 +98,13 @@ const FeaturedProducts = () => {
               <div key={product.id} className="px-2 sm:px-3 lg:px-4">
                 <div className="relative group">
                   {/* Image Container - Optimized for Portrait Images */}
-                  <div className="relative aspect-[2/3] sm:aspect-[3/4] bg-gradient-to-br from-gray-100 to-white rounded-lg overflow-hidden border border-black/10">
+                  <div className="relative aspect-[9/18] sm:aspect-[9/18] bg-gradient-to-br from-gray-100 to-white rounded-lg overflow-hidden border border-black/10">
                     <Image
                       src={product.image}
                       alt={product.name}
                       fill
                       sizes="(max-width: 640px) 80vw, (max-width: 1024px) 45vw, 30vw"
-                      className="object-cover object-center transition-all duration-500 group-hover:scale-105"
+                      className="object-fill object-center transition-all duration-500 group-hover:scale-105"
                       quality={85}
                       loading={index < 3 ? "eager" : "lazy"}
                       priority={index < 3}
